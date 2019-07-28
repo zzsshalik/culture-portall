@@ -23,7 +23,7 @@ const Header = () => {
               {data.site.siteMetadata.title}
         </Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link as={Link} to='/'>
+          <Nav.Link as={Link} to='/' activeClassName={headerStyles.activeNavItem}>
                   Home
           </Nav.Link>
           <Nav.Link as={Link} to='/directors'>
