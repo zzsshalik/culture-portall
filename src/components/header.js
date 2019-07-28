@@ -1,7 +1,9 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
+import { Navbar, Nav } from 'react-bootstrap';
 
 import headerStyles from "./header.module.scss"
+import 'bootstrap/dist/css/bootstrap.css';
 
 const Header = () => {
   const data = useStaticQuery(graphql`
@@ -16,42 +18,22 @@ const Header = () => {
 
   return (
     <header className={headerStyles.header}>
-      <h1>
-        <Link className={headerStyles.title} to="/">
-          {data.site.siteMetadata.title}
-        </Link>
-      </h1>
-      <nav>
-        <ul className={headerStyles.navList}>
-          <li>
-            <Link
-              className={headerStyles.navItem}
-              activeClassName={headerStyles.activeNavItem}
-              to="/"
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              className={headerStyles.navItem}
-              activeClassName={headerStyles.activeNavItem}
-              to="/directors"
-            >
-              Theatre directors
-            </Link>
-          </li>
-          <li>
-            <Link
-              className={headerStyles.navItem}
-              activeClassName={headerStyles.activeNavItem}
-              to="/developers"
-            >
-              Developers
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand as={Link} to='/'>
+              {data.site.siteMetadata.title}
+        </Navbar.Brand>
+        <Nav className="mr-auto">
+          <Nav.Link as={Link} to='/'>
+                  Home
+          </Nav.Link>
+          <Nav.Link as={Link} to='/directors'>
+                  Theatre directors
+          </Nav.Link>
+          <Nav.Link as={Link} to='/developers'>
+                  Developers
+          </Nav.Link>
+        </Nav>
+      </Navbar>
     </header>
   )
 }
