@@ -13,9 +13,6 @@ query($slug: String!) {
          birthPlace{
             lon
          }
-         body{
-           json
-         }
   }
 }
 `
