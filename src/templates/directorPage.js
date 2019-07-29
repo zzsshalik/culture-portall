@@ -27,9 +27,8 @@ query($slug: String!) {
       activity
     }
     biographyTimeline{
-      internal{
-        content
-      }
+      time, 
+      event
     }
     artistWorks{
       internal{
