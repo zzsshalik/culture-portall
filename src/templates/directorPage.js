@@ -27,16 +27,16 @@ query($slug: String!) {
       activity
     }
     biographyTimeline{
-      internal{
-        content
-      }
+      time, 
+      event
     }
     artistWorks{
-      internal{
-        content
-      }
+      time,
+      art
     }
     photoArts{
+      id,
+      title,
       file{
         url
       }
