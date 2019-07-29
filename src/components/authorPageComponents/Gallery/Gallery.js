@@ -1,7 +1,7 @@
 import React from 'react'
 
 import GalleryImage from 'react-grid-gallery';
-import style from './Gallery.module.scss';
+import galleryStyles from './Gallery.module.scss';
 
 class Gallery extends React.Component {
     
@@ -10,7 +10,7 @@ class Gallery extends React.Component {
 
         return(
             <>
-            <h3>Gallery</h3>
+            <h3 className={galleryStyles.gallery_title}>Gallery</h3>
                 {this.props.photosArrayOfObjects.map((edge) => {
                     const imageInfo = {};
                     imageInfo.src = edge.file.url;
