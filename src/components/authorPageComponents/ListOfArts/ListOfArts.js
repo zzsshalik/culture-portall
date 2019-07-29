@@ -8,18 +8,22 @@ class ListOfArts extends React.Component {
             <>
             <h3 className={artsListStyle.artsList_title}>Artist works</h3>
             <table>
-                <tr>
-                    <th className={artsListStyle.artsList_th}>Date of creation</th>
-                    <th className={artsListStyle.artsList_th}>Art</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th className={artsListStyle.artsList_th}>Date of creation</th>
+                        <th className={artsListStyle.artsList_th}>Art</th>
+                    </tr>
+                </thead>
+                <tbody>
                 {this.props.artsArrayOfObject.map((edge) => {
                     return (
-                        <tr>
+                        <tr key={edge.id+edge.art}>
                             <td className={artsListStyle.artsList_td_time}>{edge.time}</td>
                             <td className={artsListStyle.artsList_td}>{edge.art}</td>
                         </tr>
                     )
                 })}
+                </tbody>
             </table> 
             </>
         )

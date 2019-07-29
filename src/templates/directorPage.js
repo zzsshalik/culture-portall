@@ -35,6 +35,7 @@ query($slug: String!) {
       art
     }
     photoArts{
+      id,
       title,
       file{
         url
