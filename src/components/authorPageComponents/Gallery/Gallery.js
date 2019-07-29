@@ -1,13 +1,25 @@
 import React from 'react'
 
+import GalleryImage from 'react-grid-gallery';
 import style from './Gallery.module.scss';
 
 class Gallery extends React.Component {
+    
     render() {
+        const imagesArray = [];
+
         return(
             <>
-            {/* this.props.photosArrayOfObjects - this is an array of objects! */}
-            <p>{this.props.photosArrayOfObjects[0].file.url}....$Gallery</p>
+            <h3>Gallery</h3>
+                {this.props.photosArrayOfObjects.map((edge) => {
+                    const imageInfo = {};
+                    imageInfo.src = edge.file.url;
+                    imageInfo.thumbnail = edge.file.url;
+                    imageInfo.caption = edge.title;
+                    imagesArray.push(imageInfo);
+                })} 
+
+                <GalleryImage images={imagesArray}/>
             </>
         )
     }
