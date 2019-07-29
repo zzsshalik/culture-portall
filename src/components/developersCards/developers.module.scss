@@ -1,0 +1,46 @@
+.head {
+    margin-top: 5rem;
+}
+
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+}
+
+.post {
+    margin: 0 1rem;
+    border: 1px solid #777777;
+
+    a {
+        background: #f4f4f4;
+        color: #000000;
+        display: block;
+        padding: 0.5rem;
+    }
+
+    a:hover {
+        background: #e4e4e4;
+    }
+
+    img {
+        width: 8rem;
+        height: 8rem;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+
+    p {
+        color: #777777;
+        font-size: .8rem;
+        font-style: italic;
+        margin: 0.5rem;
+        text-align: center;
+    }
+
+    svg {
+        display: block;
+        margin: 5px auto;
+    }
+}
