@@ -1,0 +1,25 @@
+.artsList_title {
+    font-size: 2rem;
+    display:flex;
+    justify-content: center;
+}
+
+.artsList_th {
+    font-size: 1.3rem;
+    background: #AFCDE7;
+    color: #fff;
+    border: 2px solid #000;
+    text-align: center;
+    padding: 0.5em;
+}
+
+.artsList_td_time {
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px solid #000;
+}
+
+.artsList_td {
+    font-size: 1.1rem;
+    border: 1px solid #000;
+}
