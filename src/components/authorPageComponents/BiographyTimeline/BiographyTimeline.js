@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Timeline, TimelineItem }  from 'vertical-timeline-component-for-react';
-import style from './BiographyTimeline.module.scss';
+import timelineStyles from './BiographyTimeline.module.scss';
 
 class BiographyTimeline extends React.Component {
     render() {
@@ -9,8 +9,8 @@ class BiographyTimeline extends React.Component {
 
         return (
             <>
-            <h3>Timeline</h3>
-            <Timeline lineColor={'#ddd'}>
+            <h3 className={timelineStyles.timeline_title}>Timeline</h3>
+            <Timeline lineColor={'#5e4480'}>
                 {this.props.timelineObjects.map((edge) => {
                     return (
                         <TimelineItem
@@ -25,7 +25,7 @@ class BiographyTimeline extends React.Component {
                             }}
                         >
 
-                            <p>{edge.event}</p>
+                            <p className={timelineStyles.timeline_text}>{edge.event}</p>
                         </TimelineItem>
                     )
                 })} 
