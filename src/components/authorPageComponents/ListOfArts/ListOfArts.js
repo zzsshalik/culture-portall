@@ -6,8 +6,21 @@ class ListOfArts extends React.Component {
     render() {
         return(
             <>
-            {/* this.props.artsArrayOfObject - this is an array of objects! */}
-            <p>{this.props.artsArrayOfObject[0].internal.content}....@list of arts</p>
+            <h3>Artist works</h3>
+            <table>
+                <tr>
+                    <th>Date of creation</th>
+                    <th>Art</th>
+                </tr>
+                {this.props.artsArrayOfObject.map((edge) => {
+                    return (
+                        <tr>
+                            <td>{edge.time}</td>
+                            <td>{edge.art}</td>
+                        </tr>
+                    )
+                })}
+            </table> 
             </>
         )
     }

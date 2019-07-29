@@ -31,9 +31,8 @@ query($slug: String!) {
       event
     }
     artistWorks{
-      internal{
-        content
-      }
+      time,
+      art
     }
     photoArts{
       title,
