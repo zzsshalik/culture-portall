@@ -1,38 +1,87 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-import Layout from "../components/layout"
-import Head from "../components/head"
+import Layout from "../components/layoutComponents/layout/layout"
+import Head from "../components/pageTitle/head"
+
+import AuthorShortData from '../components/authorPageComponents/AuthorShortData/AuthorShortData'
+import BiographyTimeline from '../components/authorPageComponents/BiographyTimeline/BiographyTimeline'
+import Galerry from '../components/authorPageComponents/Gallery/Gallery'
+import ListOfArts from '../components/authorPageComponents/ListOfArts/ListOfArts'
+import Map from '../components/authorPageComponents/Map/Map'
+import VideoOverlay from '../components/authorPageComponents/VideoOverlay/VideoOverlay'
 
 export const query = graphql`
 query($slug: String!) {
   contentfulPerson(slug: { eq: $slug }) {
-         name
-         slug	
-         birthPlace{
-            lon
-         }
+    slug	
+    name
+    born
+    dead
+		photo{
+      file{
+        url
+      }
+    }
+    activity{
+      activity
+    }
+    biographyTimeline{
+      internal{
+        content
+      }
+    }
+    artistWorks{
+      internal{
+        content
+      }
+    }
+    photoArts{
+      file{
+        url
+      }
+    }
+    youtubeVideoId
+    placesAtivity{
+      internal{
+        content
+      }
+    }
+    birthPlace{
+      lat
+    }
   }
 }
 `
 
 const DirectorPage = props => {
-  const options = {
-    renderNode: {
-      "embedded-asset-block": (node) => {
-        const alt = node.data.target.fields.title['en-US']
-        const url = node.data.target.fields.file['en-US'].url
-        return <img alt={alt} src={url} />
-      }
-    }
-  }
+  const patternRoute=props.data.contentfulPerson;
+
   return (
     <Layout>
-      <Head title={props.data.contentfulPerson.name}/>
-      <h1>{props.data.contentfulPerson.name}</h1>
-      <p>{props.data.contentfulPerson.name}</p>
-      {documentToReactComponents(props.data.contentfulPerson.body.json, options)}
+      <Head title={patternRoute.name}/>
+      <h1>{patternRoute.name}</h1>
+      <AuthorShortData 
+      name={patternRoute.name}
+      born={patternRoute.born}
+      dead={patternRoute.dead}
+      activity={patternRoute.activity.activity}
+      />
+      <BiographyTimeline
+      timelineObjects={patternRoute.biographyTimeline} />
+
+      <ListOfArts 
+      artsArrayOfObject={patternRoute.artistWorks}
+      />
+      <Map 
+      arrayOfPlacesObjects={patternRoute.placesAtivity}
+      />
+      <VideoOverlay 
+      videoId={patternRoute.youtubeVideoId}
+      />
+      <Galerry 
+      photosArrayOfObjects={patternRoute.photoArts}
+      />
     </Layout>
   )
 }

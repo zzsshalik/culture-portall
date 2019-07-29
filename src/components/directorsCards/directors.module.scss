@@ -9,7 +9,7 @@
     a {
         background: #f4f4f4;
         color: #000000;
-        display: block;
+        display: flex;
         padding: 1rem;
         text-decoration: none;
     }
@@ -26,5 +26,9 @@
         color: #777777;
         font-size: .8rem;
         font-style: italic;
+    }
+    img{
+        width: 100px;
+        margin: 7px;
     }
 }
