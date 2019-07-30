@@ -60,9 +60,9 @@ const DirectorPage = props => {
   return (
     <Layout>
       <Head title={patternRoute.name}/>
-      <h1>{patternRoute.name}</h1>
-      <AuthorShortData 
-      name={patternRoute.name}
+      <AuthorShortData
+      header={patternRoute.name}
+      photo={patternRoute.photo.file.url}
       born={patternRoute.born}
       dead={patternRoute.dead}
       activity={patternRoute.activity.activity}

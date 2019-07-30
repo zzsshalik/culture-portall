@@ -1,0 +1,27 @@
+.head {
+    display: flex;
+    justify-content: center;
+}
+
+.divideLine {
+    width: 100px;
+    height: 2px;
+    background: #777777;
+    margin: 1rem auto;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0 3rem;
+
+    img {
+        height: 250px;
+        width: 250px;
+        margin: 0 auto .7rem;
+    }
+
+    p {
+        text-align: center;
+    }
+}
