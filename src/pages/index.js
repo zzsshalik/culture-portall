@@ -1,10 +1,29 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 
 import Layout from "../components/layoutComponents/layout/layout"
 import Head from "../components/pageTitle/head"
+import DevCards from '../components/developersCards/developersCards'
 
 const IndexPage = () => {
+    const data = useStaticQuery(graphql`
+    query {
+        allContentfulDevelopersInfo(filter:{node_locale: { eq: "en-US"}}) {
+            edges {
+                node {
+                    name
+                    linkToGithub
+                    avatar{
+                        file{
+                            url
+                        }
+                    }
+                }
+            }
+        }
+    }
+    `)
+
     return (
         <Layout>
             <Head title="Home" />
@@ -35,6 +54,8 @@ const IndexPage = () => {
             </p>
 
             <h2> Enjoy reading!</h2>
+
+            <DevCards data={data} />
 
         </Layout>
     )
