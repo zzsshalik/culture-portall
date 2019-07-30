@@ -15,6 +15,8 @@ class Gallery extends React.Component {
                     const imageInfo = {};
                     imageInfo.src = edge.file.url;
                     imageInfo.thumbnail = edge.file.url;
+                    imageInfo.thumbnailWidth = 320;
+                    imageInfo.thumbnailHeight = 150;
                     imageInfo.caption = edge.title;
                     imagesArray.push(imageInfo);
                 })} 
