@@ -4,76 +4,77 @@ import { graphql } from "gatsby"
 import Layout from "../components/layoutComponents/layout/layout"
 import Head from "../components/pageTitle/head"
 
-import AuthorShortData from '../components/authorPageComponents/AuthorShortData/AuthorShortData'
-import BiographyTimeline from '../components/authorPageComponents/BiographyTimeline/BiographyTimeline'
-import Galerry from '../components/authorPageComponents/Gallery/Gallery'
-import ListOfArts from '../components/authorPageComponents/ListOfArts/ListOfArts'
-import MyMapComponent from '../components/authorPageComponents/Map/Map'
-import VideoOverlay from '../components/authorPageComponents/VideoOverlay/VideoOverlay'
+import AuthorShortData from "../components/authorPageComponents/AuthorShortData/AuthorShortData"
+import BiographyTimeline from "../components/authorPageComponents/BiographyTimeline/BiographyTimeline"
+import Galerry from "../components/authorPageComponents/Gallery/Gallery"
+import ListOfArts from "../components/authorPageComponents/ListOfArts/ListOfArts"
+import MyMapComponent from "../components/authorPageComponents/Map/Map"
+import VideoOverlay from "../components/authorPageComponents/VideoOverlay/VideoOverlay"
 
 const DirectorPage = props => {
-  const patternRoute=props.data.contentfulPerson;
+  const patternRoute = props.data.contentfulPerson
 
   const map = {
     markGeometry: [53, 26],
     center: [53, 26],
-    mapHintContent: 'GG',
-    mapBalloonContent: 'EASY'
+    mapHintContent: "GG",
+    mapBalloonContent: "EASY",
   }
   const map1 = [
     {
       markGeometry: [53, 26],
       center: [53, 26],
-      mapHintContent: 'GG',
-      mapBalloonContent: 'EASY'
+      mapHintContent: "GG1",
+      mapBalloonContent: "EASY1",
     },
     {
       markGeometry: [54, 26],
-      center: [53, 26],
-      mapHintContent: 'GG',
-      mapBalloonContent: 'EASY'
-    }
+      center: [54, 26],
+      mapHintContent: "GG2",
+      mapBalloonContent: "EASY2",
+    },
   ]
-  const coordinates = [
-    [55.684758, 37.738521],
-    [57.684758, 39.738521]
-  ];
 
   return (
     <Layout>
-      <Head title={patternRoute.name}/>
+      <Head title={patternRoute.name} />
       <h1>{patternRoute.name}</h1>
-      <AuthorShortData 
-      name={patternRoute.name}
-      born={patternRoute.born}
-      dead={patternRoute.dead}
-      activity={patternRoute.activity.activity}
+      <AuthorShortData
+        name={patternRoute.name}
+        born={patternRoute.born}
+        dead={patternRoute.dead}
+        activity={patternRoute.activity.activity}
       />
-      <BiographyTimeline
-      timelineObjects={patternRoute.biographyTimeline} />
+      <BiographyTimeline timelineObjects={patternRoute.biographyTimeline} />
 
-      <ListOfArts 
-      artsArrayOfObject={patternRoute.artistWorks}
+      <ListOfArts artsArrayOfObject={patternRoute.artistWorks} />
+      <MyMapComponent
+        width={"86vw"}
+        height={"30vw"}
+        mapState={{
+          center: [
+            `${Number.parseInt(
+              JSON.parse(patternRoute.placesAtivity[0].internal.content)
+                .Latitude
+            )}`,
+            `${Number.parseInt(
+              JSON.parse(patternRoute.placesAtivity[0].internal.content)
+                .Longitude
+            )}`,
+          ],
+          zoom: 10,
+        }}
+        markGeometry={map1}
       />
-        <MyMapComponent
-          width={'86vw'}
-          height={'30vw'}
-          mapState={{ center: map.center, zoom: 10 }}
-          markGeometry={map1}
-          mapHintContent={map.mapHintContent}
-          mapBalloonContent={map.mapBalloonContent}
-        />
-        {/* <p>{this.props.arrayOfPlacesObjects[0].internal.content}....@Map</p> */}
-        <p>{patternRoute.placesAtivity[0].internal.content}</p>
+      {/* <p>{this.props.arrayOfPlacesObjects[0].internal.content}....@Map</p> */}
+      <p>{`${
+        JSON.parse(patternRoute.placesAtivity[1].internal.content).markGeometry
+      }`}</p>
       {/* <Map 
       arrayOfPlacesObjects={patternRoute.placesAtivity}
       />  */}
-      <VideoOverlay 
-      videoId={patternRoute.youtubeVideoId}
-      />
-      <Galerry 
-      photosArrayOfObjects={patternRoute.photoArts}
-      />
+      <VideoOverlay videoId={patternRoute.youtubeVideoId} />
+      <Galerry photosArrayOfObjects={patternRoute.photoArts} />
     </Layout>
   )
 }
@@ -81,43 +82,43 @@ const DirectorPage = props => {
 export default DirectorPage
 
 export const query = graphql`
-query($slug: String!) {
-  contentfulPerson(slug: { eq: $slug }) {
-    slug	
-    name
-    born
-    dead
-		photo{
-      file{
-        url
+  query($slug: String!) {
+    contentfulPerson(slug: { eq: $slug }) {
+      slug
+      name
+      born
+      dead
+      photo {
+        file {
+          url
+        }
       }
-    }
-    activity{
-      activity
-    }
-    biographyTimeline{
-      time, 
-      event
-    }
-    artistWorks{
-      time,
-      art
-    }
-    photoArts{
-      title,
-      file{
-        url
+      activity {
+        activity
       }
-    }
-    youtubeVideoId
-    placesAtivity{
-      internal{
-        content
+      biographyTimeline {
+        time
+        event
       }
-    }
-    birthPlace{
-      lat
+      artistWorks {
+        time
+        art
+      }
+      photoArts {
+        title
+        file {
+          url
+        }
+      }
+      youtubeVideoId
+      placesAtivity {
+        internal {
+          content
+        }
+      }
+      birthPlace {
+        lat
+      }
     }
   }
-}
 `

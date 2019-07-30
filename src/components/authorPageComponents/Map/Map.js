@@ -4,8 +4,6 @@ import { YMaps, Map, Placemark } from "react-yandex-maps"
 const MyMapComponent = ({
   mapState,
   markGeometry,
-  mapHintContent,
-  mapBalloonContent,
   ...rest
 }) => (
   <YMaps>
