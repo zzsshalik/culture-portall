@@ -52,27 +52,11 @@ const DirectorPage = props => {
         width={"86vw"}
         height={"30vw"}
         mapState={{
-          center: [
-            `${Number.parseInt(
-              JSON.parse(patternRoute.placesAtivity[0].internal.content)
-                .Latitude
-            )}`,
-            `${Number.parseInt(
-              JSON.parse(patternRoute.placesAtivity[0].internal.content)
-                .Longitude
-            )}`,
-          ],
+          center: [Number.parseInt(patternRoute.placesAtivity[0].Latitude),Number.parseInt(patternRoute.placesAtivity[0].Longitude)],
           zoom: 10,
         }}
-        markGeometry={map1}
+        markGeometry={patternRoute.placesAtivity}
       />
-      {/* <p>{this.props.arrayOfPlacesObjects[0].internal.content}....@Map</p> */}
-      <p>{`${
-        JSON.parse(patternRoute.placesAtivity[1].internal.content).markGeometry
-      }`}</p>
-      {/* <Map 
-      arrayOfPlacesObjects={patternRoute.placesAtivity}
-      />  */}
       <VideoOverlay videoId={patternRoute.youtubeVideoId} />
       <Galerry photosArrayOfObjects={patternRoute.photoArts} />
     </Layout>
@@ -112,6 +96,11 @@ export const query = graphql`
       }
       youtubeVideoId
       placesAtivity {
+        place
+        Latitude
+        Longitude
+        center
+        markGeometry
         internal {
           content
         }

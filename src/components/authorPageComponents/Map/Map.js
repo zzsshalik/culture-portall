@@ -10,10 +10,10 @@ const MyMapComponent = ({
     <Map state={mapState} {...rest}>
       {markGeometry.map(coordinate => (
         <Placemark
-          geometry={coordinate.markGeometry}
+         geometry={[Number.parseInt(coordinate.Latitude),Number.parseInt(coordinate.Longitude)]}
           properties={{
-            hintContent: `${coordinate.mapHintContent}`,
-            balloonContent: `${coordinate.mapBalloonContent}`,
+            hintContent: `${coordinate.place}`,
+            balloonContent: `${coordinate.place}`,
           }}
           modules={["geoObject.addon.balloon", "geoObject.addon.hint"]}
         />
