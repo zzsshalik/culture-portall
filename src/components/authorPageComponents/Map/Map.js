@@ -1,16 +1,27 @@
-import React from 'react'
+import React from "react"
+import { YMaps, Map, Placemark } from "react-yandex-maps"
 
-import style from './Map.module.scss';
+const MyMapComponent = ({
+  mapState,
+  markGeometry,
+  mapHintContent,
+  mapBalloonContent,
+  ...rest
+}) => (
+  <YMaps>
+    <Map state={mapState} {...rest}>
+      {markGeometry.map(coordinate => (
+        <Placemark
+          geometry={coordinate.markGeometry}
+          properties={{
+            hintContent: `${coordinate.mapHintContent}`,
+            balloonContent: `${coordinate.mapBalloonContent}`,
+          }}
+          modules={["geoObject.addon.balloon", "geoObject.addon.hint"]}
+        />
+      ))}
+    </Map>
+  </YMaps>
+)
 
-class Map extends React.Component {
-    render() {
-        return(
-            <>
-            {/* this.props.arrayOfPlacesObjects - this is an array of objects! */}
-            <p>{this.props.arrayOfPlacesObjects[0].internal.content}....@Map</p>
-            </>
-        )
-    }
-}
-  
-export default Map
+export default MyMapComponent
