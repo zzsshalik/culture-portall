@@ -63,7 +63,8 @@ const DirectorPage = props => {
           mapHintContent={map.mapHintContent}
           mapBalloonContent={map.mapBalloonContent}
         />
-        <p>{patternRoute.placesAtivity}</p>
+        {/* <p>{this.props.arrayOfPlacesObjects[0].internal.content}....@Map</p> */}
+        <p>{patternRoute.placesAtivity[0].internal.content}</p>
       {/* <Map 
       arrayOfPlacesObjects={patternRoute.placesAtivity}
       />  */}

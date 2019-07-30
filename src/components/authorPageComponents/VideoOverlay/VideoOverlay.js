@@ -1,15 +1,30 @@
 import React from 'react'
-
-import style from './VideoOverlay.module.scss';
+import ModalVideo from 'react-modal-video'
+import 'react-modal-video/scss/modal-video.scss';
 
 class VideoOverlay extends React.Component {
-    render() {
-        return(
-            <>
-            <p>{this.props.videoId}....@VideoOverlay</p>
-            </>
-        )
+
+  constructor () {
+    super()
+    this.state = {
+      isOpen: false
     }
+    this.openModal = this.openModal.bind(this)
+  }
+
+  openModal () {
+    this.setState({isOpen: true})
+  }
+
+  render () {
+    return (
+      <div>
+        <h3>YouTube</h3>
+        <ModalVideo channel='youtube' isOpen={this.state.isOpen} videoId='L61p2uyiMSo' onClose={() => this.setState({isOpen: false})} />
+        <button onClick={this.openModal}>Open</button>
+      </div>
+    )
+  }
 }
-  
+
 export default VideoOverlay
