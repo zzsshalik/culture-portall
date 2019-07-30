@@ -63,6 +63,7 @@ const DirectorPage = props => {
           mapHintContent={map.mapHintContent}
           mapBalloonContent={map.mapBalloonContent}
         />
+        <p>{patternRoute.placesAtivity}</p>
       {/* <Map 
       arrayOfPlacesObjects={patternRoute.placesAtivity}
       />  */}
@@ -73,6 +74,7 @@ const DirectorPage = props => {
       photosArrayOfObjects={patternRoute.photoArts}
       />
     </Layout>
+  )
 }
 
 export default DirectorPage
