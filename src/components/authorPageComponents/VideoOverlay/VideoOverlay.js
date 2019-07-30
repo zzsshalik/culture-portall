@@ -20,7 +20,7 @@ class VideoOverlay extends React.Component {
     return (
       <div>
         <h3>YouTube</h3>
-        <ModalVideo channel='youtube' isOpen={this.state.isOpen} videoId='L61p2uyiMSo' onClose={() => this.setState({isOpen: false})} />
+        <ModalVideo channel='youtube' isOpen={this.state.isOpen} videoId={this.props.videoId} onClose={() => this.setState({isOpen: false})} />
         <button onClick={this.openModal}>Open</button>
       </div>
     )
