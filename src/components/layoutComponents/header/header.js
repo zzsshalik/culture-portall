@@ -25,13 +25,13 @@ const Header = () => {
                 {data.site.siteMetadata.title}
           </Navbar.Brand>
           <Nav className="ml-auto">
-            <Nav.Link as={Link} to='/' activeClassName={headerStyles.activeNavItem}>
+            <Nav.Link activeStyle={{ color: "#ffffff" }} as={Link} to='/'>
                     Home
             </Nav.Link>
-            <Nav.Link as={Link} to='/directors'>
+            <Nav.Link activeStyle={{ color: "#ffffff" }} as={Link} to='/directors'>
                     Theatre directors
             </Nav.Link>
-            <Nav.Link as={Link} to='/developers'>
+            <Nav.Link activeStyle={{ color: "#ffffff" }} as={Link} to='/developers'>
                     Developers
             </Nav.Link>
           </Nav>
