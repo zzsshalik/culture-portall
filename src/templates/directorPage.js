@@ -37,13 +37,13 @@ const DirectorPage = props => {
 
   return (
     <Layout>
-      <Head title={patternRoute.name} />
-      <h1>{patternRoute.name}</h1>
+      <Head title={patternRoute.name}/>
       <AuthorShortData
-        name={patternRoute.name}
-        born={patternRoute.born}
-        dead={patternRoute.dead}
-        activity={patternRoute.activity.activity}
+      header={patternRoute.name}
+      photo={patternRoute.photo.file.url}
+      born={patternRoute.born}
+      dead={patternRoute.dead}
+      activity={patternRoute.activity.activity}
       />
       <BiographyTimeline timelineObjects={patternRoute.biographyTimeline} />
 

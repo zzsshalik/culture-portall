@@ -1,18 +1,27 @@
 import React from 'react'
 
-import style from './AuthorShortData.module.scss';
+import authorStyles from './AuthorShortData.module.scss';
 
 class AuthorShortData extends React.Component {
     render() {
+        let dead;
+        if (this.props.dead) {
+            dead = this.props.dead;
+        } else {
+            dead = 'Alive';
+        }
+
         return(
-            <>
-            <p>AuthorShortData</p>
-            <p>{this.props.name}</p>
-            <p>{this.props.born}</p>
-            <p>{this.props.dead}</p>
-            <p>{this.props.activity}</p>
-            <p>_________________</p>
-            </>
+            <React.Fragment>
+            <h1 className={authorStyles.head}>{this.props.header}</h1>
+            <div className={authorStyles.info}>
+                <img className={authorStyles.photo} src={this.props.photo}/>
+                <p>{this.props.name}</p>
+                <p>{this.props.born} - {dead}</p>
+                <p>{this.props.activity}</p>
+                <div className={authorStyles.divideLine}></div>
+            </div>
+            </React.Fragment>
         )
     }
 }

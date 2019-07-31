@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Layout from "../components/layoutComponents/layout/layout"
 import Head from "../components/pageTitle/head"
 import DevCards from '../components/developersCards/developersCards'
+import AuthorOfDay  from '../components/authorOfDay/authorOfDay'
 
 const IndexPage = () => {
     const data = useStaticQuery(graphql`
@@ -17,6 +18,22 @@ const IndexPage = () => {
                         file{
                             url
                         }
+                    }
+                }
+            }
+        }
+        allContentfulPerson(filter:{node_locale: { eq: "en-US"}}) {
+            edges{
+                node{
+                    slug
+                    name
+                    photo{
+                        file{
+                            url
+                        }
+                    }
+                    activity{
+                        activity
                     }
                 }
             }
@@ -55,8 +72,9 @@ const IndexPage = () => {
 
             <h2> Enjoy reading!</h2>
 
+            <AuthorOfDay data = {data} />
             <DevCards data={data} />
-
+            
         </Layout>
     )
 }
