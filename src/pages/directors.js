@@ -15,6 +15,10 @@ const DirectorPage = () => {
                    name
                    node_locale
                    slug
+                   birthCity {
+                     city
+                     country
+                   }
                    photo{
                     file{
                       url

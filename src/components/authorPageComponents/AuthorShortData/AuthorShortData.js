@@ -16,7 +16,7 @@ class AuthorShortData extends React.Component {
             <h1 className={authorStyles.head}>{this.props.header}</h1>
             <div className={authorStyles.info}>
                 <img className={authorStyles.photo} src={this.props.photo}/>
-                <p>{this.props.name}</p>
+                <p>{this.props.city}, {this.props.country}</p>
                 <p>{this.props.born} - {dead}</p>
                 <p>{this.props.activity}</p>
                 <div className={authorStyles.divideLine}></div>
