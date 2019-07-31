@@ -5,9 +5,10 @@ module.exports.createPages = async ({ graphql, actions }) => {
     const directorPageTemplate = path.resolve('./src/templates/directorPage.js')
     const res = await graphql(`
     query {
-        allContentfulPerson  {
+        allContentfulPerson(filter:{node_locale: { eq: "en-US"}}) {
             edges {
                 node {
+                   node_locale
                    slug
                 }
             }
@@ -19,7 +20,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
             component: directorPageTemplate,
             path: `/directors/${edge.node.slug}`,
             context: {
-                slug: edge.node.slug
+                slug: edge.node.slug,
+                node_locale: edge.node.node_locale
             }
         })
     })

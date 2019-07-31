@@ -1,0 +1,47 @@
+.head {
+    margin-top: 5rem;
+}
+
+.post {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border: 1px solid #777777;
+    padding: .5rem;
+
+    img {
+        width: 150px;
+        height: 150px;
+        margin-top: 1.45rem;
+    }
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.45rem;
+
+    p {
+        font-size: 1rem;
+    }
+
+    a {
+        display: block;
+        width: 150px;
+        height: 2rem;
+        background: #f4f4f4;
+        border: 1px solid #777777;
+        color: #000000;
+        text-decoration: none;
+        text-align: center;
+        padding-top: .25rem;
+    }
+
+    a:hover{
+        background: #e4e4e4;
+    }
+}
+
+.name {
+    font-weight: bold;
+}

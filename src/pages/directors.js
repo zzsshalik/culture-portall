@@ -1,20 +1,24 @@
 import React from 'react'
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 
-import Layout from '../components/layout'
-import directorsStyles from './directors.module.scss'
-import Head from "../components/head"
+import Layout from "../components/layoutComponents/layout/layout"
+import Head from "../components/pageTitle/head"
+import DirectorCards from '../components/directorsCards/directorsCards'
+import Container from '../components/layoutComponents/container/container'
 
 const DirectorPage = () => {
     const data = useStaticQuery(graphql`
     query {
-        allContentfulPerson  {
+        allContentfulPerson(filter:{node_locale: { eq: "en-US"}}) {
             edges {
                 node {
                    name
+                   node_locale
                    slug
-                  birthPlace{
-                    lon
+                   photo{
+                    file{
+                      url
+                    }
                   }
                 }
             }
@@ -25,20 +29,11 @@ const DirectorPage = () => {
     return (
         <Layout>
             <Head title="Directors"/>
-            <h1>Theatre directors page</h1>
+            <Container>
+              <h1>Theatre directors page</h1>
             <p>There should be a search string and suggested search results </p>
-            <ol className={directorsStyles.posts}>
-                {data.allContentfulPerson.edges.map((edge) => {
-                    return (
-                        <li className={directorsStyles.post}>
-                            <Link to={`/directors/${edge.node.slug}`}>
-                                <h2>{edge.node.name}</h2>
-                                <p>{edge.node.name}</p>
-                            </Link>
-                        </li>
-                    )
-                })}
-            </ol>
+            <DirectorCards data={data} />
+            </Container>
         </Layout>
     )
 }
