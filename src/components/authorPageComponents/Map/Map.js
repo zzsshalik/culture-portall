@@ -10,7 +10,8 @@ const MyMapComponent = ({
     <Map state={mapState} {...rest}>
       {markGeometry.map(coordinate => (
         <Placemark
-         geometry={[Number.parseInt(coordinate.Latitude),Number.parseInt(coordinate.Longitude)]}
+        key={coordinate.Latitude+coordinate.Longitude}
+        geometry={[Number.parseInt(coordinate.Latitude),Number.parseInt(coordinate.Longitude)]}
           properties={{
             hintContent: `${coordinate.place}`,
             balloonContent: `${coordinate.place}`,

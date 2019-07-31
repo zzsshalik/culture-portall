@@ -14,27 +14,6 @@ import VideoOverlay from "../components/authorPageComponents/VideoOverlay/VideoO
 const DirectorPage = props => {
   const patternRoute = props.data.contentfulPerson
 
-  const map = {
-    markGeometry: [53, 26],
-    center: [53, 26],
-    mapHintContent: "GG",
-    mapBalloonContent: "EASY",
-  }
-  const map1 = [
-    {
-      markGeometry: [53, 26],
-      center: [53, 26],
-      mapHintContent: "GG1",
-      mapBalloonContent: "EASY1",
-    },
-    {
-      markGeometry: [54, 26],
-      center: [54, 26],
-      mapHintContent: "GG2",
-      mapBalloonContent: "EASY2",
-    },
-  ]
-
   return (
     <Layout>
       <Head title={patternRoute.name}/>
