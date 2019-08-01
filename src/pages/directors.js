@@ -30,17 +30,6 @@ const DirectorPage = () => {
     }
     `)
 
-    const propsValues = {
-      items: [
-        "HTC U Ultra",
-        "iPhone 7",
-        "Google Pixel",
-        "Hawei P9",
-        "Meizu Pro 6",
-        "Asus Zenfone 3"
-      ]
-    };
-
     return (
         <Layout>
             <Head title="Directors"/>
