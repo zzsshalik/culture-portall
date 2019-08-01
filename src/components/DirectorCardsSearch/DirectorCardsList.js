@@ -1,14 +1,17 @@
 import React from "react"
 import SearchPlugin from "./SearchPlugin"
-import Item from "./Item"
 import { Link } from "gatsby"
 import directorsStyles from "./directors.module.scss"
 
-class ItemsList extends React.Component {
+class DirectorCardsList extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { items: this.props.data.allContentfulPerson.edges }
+    this.state = { items: this.props.data.allContentfulPerson.edges.sort((a, b) => {
+        const nameA = a.node.name
+        const nameB = b.node.name
+        return (nameA < nameB) ? -1: 1;
+      }) }
 
     this.updateFilterList = this.updateFilterListHandler.bind(this)
   }
@@ -25,7 +28,6 @@ class ItemsList extends React.Component {
         <ol className={directorsStyles.posts}>
           {this.state.items.map(item => {
             return (
-              /* <Item key={`phone-id-${item}`} name={item} />  */
               <li
                 className={directorsStyles.post}
                 key={item.node.name + item.node.node_locale}
@@ -50,4 +52,4 @@ class ItemsList extends React.Component {
   }
 }
 
-export default ItemsList
+export default DirectorCardsList

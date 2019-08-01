@@ -3,10 +3,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 import Layout from "../components/layoutComponents/layout/layout"
 import Head from "../components/pageTitle/head"
-import DirectorCards from '../components/directorsCards/directorsCards'
 import Container from '../components/layoutComponents/container/container'
-/* import { ItemsList } from "../components/DirectorCardsSearch/directorCardsSearch" */
-import ItemsList from "../components/DirectorCardsSearch/ItemsList"
+import DirectorCardsList from "../components/DirectorCardsSearch/DirectorCardsList"
 
 const DirectorPage = () => {
     const data = useStaticQuery(graphql`
@@ -48,8 +46,7 @@ const DirectorPage = () => {
             <Head title="Directors"/>
             <Container>
               <h1>Theatre directors page</h1>
-            <ItemsList data={data}/>
-           {/*  <DirectorCards data={data} /> */}
+            <DirectorCardsList data={data}/> 
             </Container>
         </Layout>
     )

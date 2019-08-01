@@ -1,4 +1,5 @@
 import React from 'react'
+import directorsStyles from "./directors.module.scss"
 
 class SearchPlugin extends React.Component {
     constructor(props) {
@@ -23,7 +24,7 @@ class SearchPlugin extends React.Component {
   
     render() {
       return (
-        <input placeholder="Search" onChange={this.onTextChanged} />
+        <input className={directorsStyles.search} placeholder="Search" onChange={this.onTextChanged} />
       );
     }
   }
