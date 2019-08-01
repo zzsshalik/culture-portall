@@ -7,7 +7,11 @@ const AuthorOfDay  = ({ data }) => {
              return(  <React.Fragment>
                  <h3 className={authorOfDayStyles.head}>Person of the day</h3>
 
-                    {data.allContentfulPerson.edges.map((edge, i) => {
+                    {data.allContentfulPerson.edges.sort((a, b) => {
+                            const nameA = a.node.name
+                            const nameB = b.node.name
+                            return (nameA < nameB) ? -1: 1;
+                        }).map((edge, i) => {
                         const now = new Date();
                         const date = now.getDate();
 
