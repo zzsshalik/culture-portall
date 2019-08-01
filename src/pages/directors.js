@@ -5,6 +5,8 @@ import Layout from "../components/layoutComponents/layout/layout"
 import Head from "../components/pageTitle/head"
 import DirectorCards from '../components/directorsCards/directorsCards'
 import Container from '../components/layoutComponents/container/container'
+/* import { ItemsList } from "../components/DirectorCardsSearch/directorCardsSearch" */
+import ItemsList from "../components/DirectorCardsSearch/ItemsList"
 
 const DirectorPage = () => {
     const data = useStaticQuery(graphql`
@@ -30,12 +32,24 @@ const DirectorPage = () => {
     }
     `)
 
+    const propsValues = {
+      items: [
+        "HTC U Ultra",
+        "iPhone 7",
+        "Google Pixel",
+        "Hawei P9",
+        "Meizu Pro 6",
+        "Asus Zenfone 3"
+      ]
+    };
+
     return (
         <Layout>
             <Head title="Directors"/>
             <Container>
               <h1>Theatre directors page</h1>
             <p>There should be a search string and suggested search results </p>
+            <ItemsList data={propsValues}/>
             <DirectorCards data={data} />
             </Container>
         </Layout>

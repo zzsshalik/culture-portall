@@ -1,25 +1,12 @@
-import React from "react"
+import React from 'react'
 import { Link } from "gatsby"
 import directorsStyles from "./directors.module.scss"
 
-const Cards = ({ data }) => {
-  return (
-    <ol className={directorsStyles.posts}>
-      {data.allContentfulPerson.edges
-        .sort((a, b) => {
-          const nameA = a.node.name
-          const nameB = b.node.name
-          if (nameA < nameB) {
-            return -1
-          }
-          if (nameA > nameB) {
-            return 1
-          }
-          return 0
-        })
-        .map(edge => {
-          return (
-            <li
+class Item extends React.Component {
+    render() {
+      return (
+        <li className={directorsStyles.post}>{this.props.name}</li>
+       /*  <li
               className={directorsStyles.post}
               key={edge.node.name + edge.node.node_locale}
               id={edge.node.name + edge.node.node_locale}
@@ -34,10 +21,10 @@ const Cards = ({ data }) => {
                   </p>
                 </span>
               </Link>
-            </li>
-          )
-        })}
-    </ol>
-  )
-}
-export default Cards
+            </li> */
+      );
+    }
+  }
+
+  
+export default Item
