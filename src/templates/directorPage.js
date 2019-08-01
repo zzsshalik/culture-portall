@@ -22,6 +22,8 @@ const DirectorPage = props => {
         <AuthorShortData
         header={patternRoute.name}
         photo={patternRoute.photo.file.url}
+        city={patternRoute.birthCity[0].city}
+        country={patternRoute.birthCity[0].country}
         born={patternRoute.born}
         dead={patternRoute.dead}
         activity={patternRoute.activity.activity}
@@ -90,6 +92,10 @@ export const query = graphql`
       }
       birthPlace {
         lat
+      }
+      birthCity {
+        city
+        country
       }
     }
   }
