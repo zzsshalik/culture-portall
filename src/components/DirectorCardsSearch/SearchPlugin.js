@@ -15,7 +15,7 @@ class SearchPlugin extends React.Component {
   
     searchHandler(searchString) {
       let filteredList = this.props.items.filter(item => {
-        return item.toLowerCase().search(searchString.toLowerCase()) !== -1;
+        return item.node.name.toLowerCase().search(searchString.toLowerCase()) !== -1;
       });
   
       this.props.updateList(filteredList);
@@ -23,7 +23,7 @@ class SearchPlugin extends React.Component {
   
     render() {
       return (
-        <input placeholder="Поиск" onChange={this.onTextChanged} />
+        <input placeholder="Search" onChange={this.onTextChanged} />
       );
     }
   }

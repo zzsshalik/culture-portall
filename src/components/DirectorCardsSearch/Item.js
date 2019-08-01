@@ -5,8 +5,8 @@ import directorsStyles from "./directors.module.scss"
 class Item extends React.Component {
     render() {
       return (
-        <li className={directorsStyles.post}>{this.props.name}</li>
-       /*  <li
+       /*  <li className={directorsStyles.post}>{this.props.name}</li> */
+        {/* <li
               className={directorsStyles.post}
               key={edge.node.name + edge.node.node_locale}
               id={edge.node.name + edge.node.node_locale}
@@ -21,7 +21,7 @@ class Item extends React.Component {
                   </p>
                 </span>
               </Link>
-            </li> */
+            </li> */}
       );
     }
   }

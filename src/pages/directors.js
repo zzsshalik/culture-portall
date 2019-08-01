@@ -48,9 +48,8 @@ const DirectorPage = () => {
             <Head title="Directors"/>
             <Container>
               <h1>Theatre directors page</h1>
-            <p>There should be a search string and suggested search results </p>
-            <ItemsList data={propsValues}/>
-            <DirectorCards data={data} />
+            <ItemsList data={data}/>
+           {/*  <DirectorCards data={data} /> */}
             </Container>
         </Layout>
     )
