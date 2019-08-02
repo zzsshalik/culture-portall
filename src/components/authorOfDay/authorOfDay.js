@@ -22,7 +22,7 @@ const AuthorOfDay  = ({ data }) => {
                                     <div className={authorOfDayStyles.info}>
                                         <p className={authorOfDayStyles.name}>{edge.node.name}</p>
                                         <p>{edge.node.activity.activity}</p>
-                                        <Link to={`/directors/${edge.node.slug}`}>
+                                        <Link to={`/directors/en-US/${edge.node.slug}`}>
                                             <span>Read</span>
                                         </Link>
                                     </div>

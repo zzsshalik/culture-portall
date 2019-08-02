@@ -3,7 +3,7 @@ import { Card, Accordion, Media, Table } from 'react-bootstrap';
 
 const DevBigCards = ({ data }) => {
   return(
-    <React.Fragment>
+    <>
       {data.allContentfulDevelopersInfo.edges.map((edge) => {
         return(
           <Card bg="light" key={edge.node.name+edge.node.node_locale+"big"} className="mb-5">
@@ -93,7 +93,7 @@ const DevBigCards = ({ data }) => {
           </Card>
         )
       })}
-    </React.Fragment>
+    </>
   )
 }
 
