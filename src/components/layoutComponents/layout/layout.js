@@ -7,24 +7,18 @@ import layoutStyles from './layout.module.scss'
 
 import localization from '../../../localization/localization'
 
-// const data= StaticQuery(graphql`
-//   query {
-//     site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-//   }
-// `)
+let lng ='en-US';
+
 class Layout extends React.Component {
   constructor(props) {
     super(props);
-    this.changeLanguage = this.changeLanguage.bind(this);
-    this.state = {language: "en"}
+     this.changeLanguage = this.changeLanguage.bind(this);
+     this.state = {language: lng}
   }
 
-  changeLanguage(lng){
-    this.setState({language: lng})
+   changeLanguage(lngg){
+     this.setState({language: lngg})
+     lng=lngg;
   }
 
   render(){

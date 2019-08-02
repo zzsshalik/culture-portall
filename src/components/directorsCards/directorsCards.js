@@ -7,7 +7,7 @@ const Cards = ({ data }) => {
                 {data.allContentfulPerson.edges.map((edge) => {
                     return (
                         <li className={directorsStyles.post} key={edge.node.name+edge.node.node_locale} id={edge.node.name+edge.node.node_locale}>
-                            <Link to={`/directors/${edge.node.slug}`}>
+                            <Link to={`/directors/en-US/${edge.node.slug}`}>
                                 <img src={edge.node.photo.file.url}></img>
                                 <span>
                                     <h2>{edge.node.name}</h2>

@@ -1,19 +1,19 @@
 export default {
-    en:{
+    "en-US":{
      'brand':'Culture portal',
      'home':'Home',
      'theatreDirectors':'Theatre directors',
      'developers':'Developers',
      'footerLable':'Powered by React+Gatsby+Contentful TEAM12 for RS School',
     },
-    by:{
+    "by":{
         'brand':'Культурны партал',
         'home':'Жыллё',
-        'theatreDirectors':'Тэатральны рэжысёр',
+        'theatreDirectors':'Тэатральныя рэжысёры',
         'developers':'Распрацоўшчыкі',
         'footerLable':'Працуе на React + Gatsby + Contentful TEAM12 для школы RS',
     },
-    ru:{
+    "ru":{
         'brand':'Культурный портал',
         'home':'Домой',
         'theatreDirectors':'Директора театров',

@@ -17,7 +17,7 @@ class SwitchLanguage extends React.Component {
           <span className={switchStyles.switchLanguageContainer}>
              <a className='ru' onClick={this.handleClick}>ru</a>|
              <a className='by' onClick={this.handleClick}>by</a>|
-             <a className='en' onClick={this.handleClick}>en</a>
+             <a className='en-US' onClick={this.handleClick}>en</a>
           </span>
     )
     }

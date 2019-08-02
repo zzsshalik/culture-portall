@@ -9,7 +9,7 @@ import Container from '../components/layoutComponents/container/container'
 const DirectorPage = () => {
     const data = useStaticQuery(graphql`
     query {
-        allContentfulPerson(filter:{node_locale: { eq: "en-US"}}) {
+        allContentfulPerson {
             edges {
                 node {
                    name
