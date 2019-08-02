@@ -13,7 +13,7 @@ class AuthorShortData extends React.Component {
 
         return(
             <React.Fragment>
-            <h1 className={authorStyles.head}>{this.props.header}</h1>
+            <h1 id="AName" className={authorStyles.head}>{this.props.header}</h1>
             <div className={authorStyles.info}>
                 <img className={authorStyles.photo} src={this.props.photo}/>
                 <p>{this.props.name}</p>

@@ -9,7 +9,7 @@ class BiographyTimeline extends React.Component {
 
         return (
             <>
-            <h3 className={timelineStyles.timeline_title}>Timeline</h3>
+            <h3 id="ATimeline" className={timelineStyles.timeline_title}>Timeline</h3>
             <Timeline lineColor={'#5e4480'}>
                 {this.props.timelineObjects.map((edge) => {
                     return (

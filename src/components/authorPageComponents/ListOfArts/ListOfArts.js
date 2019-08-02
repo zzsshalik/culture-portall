@@ -6,7 +6,7 @@ class ListOfArts extends React.Component {
     render() {
         return(
             <>
-            <h3 className={artsListStyle.artsList_title}>Artist works</h3>
+            <h3 id="Repertoire" className={artsListStyle.artsList_title}>Artist works</h3>
             <table>
                 <thead>
                     <tr>

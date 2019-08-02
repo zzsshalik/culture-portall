@@ -1,16 +1,6 @@
 
-#things{
-    min-height: 800px;
-    background-color: orange;
-    width: 100%;
-}
-#stuff{
-    min-height: 800px;
-    background-color: orange;
-    width: 100%;
-}
 .navi{
-    width: 8%;
+    min-width: 8%;
     display:flex;
     flex-direction:column;
     margin-top: 60px;
@@ -33,9 +23,9 @@
         height: 2px;
         position: absolute;
         bottom: 0;
-        right: 0.5rem;
+        right: 0rem;
         left: 0rem;
-        background-color: #326642;
+        background-color: #5c363b;
         transition: all .3s cubic-bezier(.2, 0, 0, 1);
         transform-origin: bottom center;
         border-radius: 5px;
@@ -49,6 +39,7 @@
                 right: 0;
                 left: 0;
                 height: 100%;
+                background-color: #ebb215;
             }
         }
     }

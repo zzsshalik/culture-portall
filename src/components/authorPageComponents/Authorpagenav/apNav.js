@@ -7,41 +7,14 @@ class ApNav extends React.Component {
     render(){
         return(
             <div className={Apns.navi}>
-                <AnchorLink className={Apns.link} href='#things'>Name</AnchorLink>
-                <AnchorLink className={Apns.link} href='#stuff'>Timeline</AnchorLink>
-                <AnchorLink className={Apns.link} href='#stuff'>Repertoire</AnchorLink>
-                <AnchorLink className={Apns.link} href='#stuff'>Map</AnchorLink>
-                <AnchorLink className={Apns.link} href='#stuff'>Gallery</AnchorLink>
+                <AnchorLink className={Apns.link} href='#AName'>Name</AnchorLink>
+                <AnchorLink className={Apns.link} href='#ATimeline'>Timeline</AnchorLink>
+                <AnchorLink className={Apns.link} href='#Repertoire'>Repertoire</AnchorLink>
+                <AnchorLink className={Apns.link} href='#AMap'>Map</AnchorLink>
+                <AnchorLink className={Apns.link} href='#AGallery'>Gallery</AnchorLink>
             </div>
         )
     }
 }
  
 export default ApNav
-
-/*class apNav extends React.Component {
-    render() {
-        let menus = [
-            "navbar",
-            "timeline--wrapper",
-        ]
-
-        return(
-            <React.Fragment>
-            <div>{menus.map((value, index) => {
-                return <div key={index}><Link label={value} /></div>
-            })
-            }</div>
-            </React.Fragment>
-        )
-    }
-}
-
-class Link extends React.Component {
-    const url =
-}
-
-
-
-
-*/
