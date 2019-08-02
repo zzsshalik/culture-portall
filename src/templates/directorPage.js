@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layoutComponents/layout/layout"
 import Head from "../components/pageTitle/head"
 
+import ApNav from "../components/authorPageComponents/Authorpagenav/apNav"
 import AuthorShortData from "../components/authorPageComponents/AuthorShortData/AuthorShortData"
 import BiographyTimeline from "../components/authorPageComponents/BiographyTimeline/BiographyTimeline"
 import Galerry from "../components/authorPageComponents/Gallery/Gallery"
@@ -38,6 +39,7 @@ const DirectorPage = props => {
   return (
     <Layout>
       <Head title={patternRoute.name}/>
+      <ApNav />
       <AuthorShortData
       header={patternRoute.name}
       photo={patternRoute.photo.file.url}

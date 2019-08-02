@@ -7,8 +7,11 @@ class ApNav extends React.Component {
     render(){
         return(
             <div className={Apns.navi}>
-                <AnchorLink className={Apns.link} href='#things'>Things</AnchorLink>
-                <AnchorLink className={Apns.link} href='#stuff'>Stuff</AnchorLink>
+                <AnchorLink className={Apns.link} href='#things'>Name</AnchorLink>
+                <AnchorLink className={Apns.link} href='#stuff'>Timeline</AnchorLink>
+                <AnchorLink className={Apns.link} href='#stuff'>Repertoire</AnchorLink>
+                <AnchorLink className={Apns.link} href='#stuff'>Map</AnchorLink>
+                <AnchorLink className={Apns.link} href='#stuff'>Gallery</AnchorLink>
             </div>
         )
     }
