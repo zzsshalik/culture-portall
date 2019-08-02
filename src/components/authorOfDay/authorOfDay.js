@@ -7,7 +7,11 @@ const AuthorOfDay  = ({ data }) => {
              return(  <React.Fragment>
                  <h3 className={authorOfDayStyles.head}>Person of the day</h3>
 
-                    {data.allContentfulPerson.edges.map((edge, i) => {
+                    {data.allContentfulPerson.edges.sort((a, b) => {
+                            const nameA = a.node.name
+                            const nameB = b.node.name
+                            return (nameA < nameB) ? -1: 1;
+                        }).map((edge, i) => {
                         const now = new Date();
                         const date = now.getDate();
 
@@ -18,7 +22,7 @@ const AuthorOfDay  = ({ data }) => {
                                     <div className={authorOfDayStyles.info}>
                                         <p className={authorOfDayStyles.name}>{edge.node.name}</p>
                                         <p>{edge.node.activity.activity}</p>
-                                        <Link to={`/directors/${edge.node.slug}`}>
+                                        <Link to={`/directors/en-US/${edge.node.slug}`}>
                                             <span>Read</span>
                                         </Link>
                                     </div>
