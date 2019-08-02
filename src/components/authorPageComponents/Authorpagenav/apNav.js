@@ -10,7 +10,7 @@ class ApNav extends React.Component {
                 <AnchorLink className={Apns.link} href='#AName'>Name</AnchorLink>
                 <AnchorLink className={Apns.link} href='#ATimeline'>Timeline</AnchorLink>
                 <AnchorLink className={Apns.link} href='#Repertoire'>Repertoire</AnchorLink>
-                <AnchorLink className={Apns.link} href='#AMap'>Map</AnchorLink>
+                <AnchorLink offset={() => 140} className={Apns.link} href='#AMap'>Map</AnchorLink>
                 <AnchorLink className={Apns.link} href='#AGallery'>Gallery</AnchorLink>
             </div>
         )
