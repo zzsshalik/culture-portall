@@ -1,0 +1,25 @@
+
+#things{
+    min-height: 800px;
+    background-color: orange;
+    width: 100%;
+}
+#stuff{
+    min-height: 800px;
+    background-color: orange;
+    width: 100%;
+}
+.navi{
+    width: 8%;
+    display:flex;
+    flex-direction:column;
+    margin-top: 40px;
+    margin-left: 20px;
+    position: fixed;
+    color: red;
+    .link{
+        color: black;
+        text-align: left;
+    }
+}
+
