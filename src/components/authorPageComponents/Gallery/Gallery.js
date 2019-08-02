@@ -10,7 +10,8 @@ class Gallery extends React.Component {
 
         return(
             <React.Fragment>
-                <h3 className={galleryStyles.gallery_title}>Gallery</h3>
+                <h3 id="AGallery" className={galleryStyles.gallery_title}>Gallery</h3>
+
                 {this.props.photosArrayOfObjects.map((edge) => {
                     const imageInfo = {};
                     const delimiter = edge.description.search('x'); 

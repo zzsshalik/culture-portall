@@ -7,7 +7,7 @@ const MyMapComponent = ({
   ...rest
 }) => (
   <YMaps>
-    <Map state={mapState} {...rest}>
+    <Map id="AMap" state={mapState} {...rest}>
       {markGeometry.map(coordinate => (
         <Placemark
         key={coordinate.Latitude+coordinate.Longitude}
