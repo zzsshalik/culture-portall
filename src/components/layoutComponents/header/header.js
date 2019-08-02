@@ -1,44 +1,40 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import { Navbar, Nav } from 'react-bootstrap';
 
 import Container from '../container/container'
 import headerStyles from "./header.module.scss"
 import 'bootstrap/dist/css/bootstrap.css';
 
-const Header = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+import SwitchLanguage from '../../SwitchLanguage/SwitchLanguage'
 
+class Header extends React.Component {
+
+render(){
   return (
     <header className={headerStyles.header}>
       <Container>
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand as={Link} to='/'>
-                {data.site.siteMetadata.title}
+              {this.props.localization.brand}
           </Navbar.Brand>
           <Nav className="ml-auto">
             <Nav.Link activeStyle={{ color: "#ffffff" }} as={Link} to='/'>
-                    Home
+                {this.props.localization.home}
             </Nav.Link>
             <Nav.Link activeStyle={{ color: "#ffffff" }} as={Link} to='/directors'>
-                    Theatre directors
+                {this.props.localization.theatreDirectors}
             </Nav.Link>
             <Nav.Link activeStyle={{ color: "#ffffff" }} as={Link} to='/developers'>
-                    Developers
+                {this.props.localization.developers}
             </Nav.Link>
           </Nav>
         </Navbar>
+        <SwitchLanguage  changeLanguage={this.props.changeLanguage}/>
       </Container>
     </header>
   )
+}
 }
 
 export default Header

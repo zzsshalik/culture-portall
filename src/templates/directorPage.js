@@ -50,8 +50,8 @@ const DirectorPage = props => {
 export default DirectorPage
 
 export const query = graphql`
-  query($slug: String!) {
-    contentfulPerson(slug: { eq: $slug }) {
+query($slug: String!,$node_locale: String!) {
+  contentfulPerson(slug: { eq: $slug },node_locale: { eq: $node_locale }) {
       slug
       name
       born

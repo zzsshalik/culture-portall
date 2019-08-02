@@ -9,7 +9,7 @@ import DirectorCardsList from "../components/DirectorCardsSearch/DirectorCardsLi
 const DirectorPage = () => {
     const data = useStaticQuery(graphql`
     query {
-        allContentfulPerson(filter:{node_locale: { eq: "en-US"}}) {
+        allContentfulPerson {
             edges {
                 node {
                    name
