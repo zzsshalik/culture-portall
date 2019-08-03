@@ -14,23 +14,24 @@ render(){
   return (
     <header className={headerStyles.header}>
       <Container>
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand as={Link} to='/'>
-              {this.props.localization.brand}
+        <Navbar bg="dark" variant="dark" className={headerStyles.navBar}>
+          <Navbar.Brand as={Link} to='/' className={headerStyles.logo}>
+            {this.props.localization.brand}
           </Navbar.Brand>
-          <Nav className="ml-auto">
+          <Nav>
             <Nav.Link activeStyle={{ color: "#ffffff" }} as={Link} to='/'>
-                {this.props.localization.home}
+              {this.props.localization.home}
             </Nav.Link>
             <Nav.Link activeStyle={{ color: "#ffffff" }} as={Link} to='/directors'>
-                {this.props.localization.theatreDirectors}
+              {this.props.localization.theatreDirectors}
             </Nav.Link>
             <Nav.Link activeStyle={{ color: "#ffffff" }} as={Link} to='/developers'>
-                {this.props.localization.developers}
+              {this.props.localization.developers}
             </Nav.Link>
           </Nav>
+          <SwitchLanguage changeLanguage={this.props.changeLanguage} />
         </Navbar>
-        <SwitchLanguage  changeLanguage={this.props.changeLanguage}/>
+
       </Container>
     </header>
   )

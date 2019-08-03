@@ -25,13 +25,13 @@ const DevelopersPage = () => {
   `)
 
     return (
-        <Layout>
-            <Head title="Developers"/>
-            <Container>
-              <h1>Developers: TEAM12</h1>
-              <DevBigCard data={data}/>
-            </Container>
-        </Layout>
+      <Layout>
+        <Head title="Developers" />
+        <Container>
+          <h1>Developers: TEAM12</h1>
+          <DevBigCard data={data} />
+        </Container>
+      </Layout>
     )
 }
 

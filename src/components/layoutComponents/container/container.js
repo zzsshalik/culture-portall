@@ -1,10 +1,10 @@
 import React from "react"
 
-const Container = (props) => {
+const Container = ({ children }) => {
   return (
-      <div className="container">
-              {props.children}
-      </div>
+    <div className="container">
+      {children}
+    </div>
   )
 }
 
