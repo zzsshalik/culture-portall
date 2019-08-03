@@ -34,7 +34,7 @@ const DirectorPage = () => {
       <Layout>
         <Head title="Directors" />
         <Container>
-          <h1>Theatre directors page</h1>
+          <h1 className="mt-5 text-center">Belorussian theatre directors</h1>
           <DirectorCardsList data={data} />
         </Container>
       </Layout>

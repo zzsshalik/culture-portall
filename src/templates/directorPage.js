@@ -13,29 +13,29 @@ import MyMapComponent from "../components/authorPageComponents/Map/Map"
 import VideoOverlay from "../components/authorPageComponents/VideoOverlay/VideoOverlay"
 import Container from '../components/layoutComponents/container/container'
 
-const DirectorPage = props => {
-  const patternRoute = props.data.contentfulPerson
+const DirectorPage = ({ data }) => {
+  const patternRoute = data.contentfulPerson
 
   return (
     <Layout>
-      <Head title={patternRoute.name}/>
+      <Head title={patternRoute.name} />
       <ApNav />
       <Container>
         <AuthorShortData
-        header={patternRoute.name}
-        photo={patternRoute.photo.file.url}
-        city={patternRoute.birthCity[0].city}
-        country={patternRoute.birthCity[0].country}
-        born={patternRoute.born}
-        dead={patternRoute.dead}
-        activity={patternRoute.activity.activity}
+          header={patternRoute.name}
+          photo={patternRoute.photo.file.url}
+          city={patternRoute.birthCity[0].city}
+          country={patternRoute.birthCity[0].country}
+          born={patternRoute.born}
+          dead={patternRoute.dead}
+          activity={patternRoute.activity.activity}
         />
         <BiographyTimeline timelineObjects={patternRoute.biographyTimeline} />
 
         <ListOfArts artsArrayOfObject={patternRoute.artistWorks} />
         <MyMapComponent
-          width={"86vw"}
-          height={"30vw"}
+          width="86vw"
+          height="30vw"
           mapState={{
             center: [Number.parseInt(patternRoute.placesAtivity[0].Latitude),Number.parseInt(patternRoute.placesAtivity[0].Longitude)],
             zoom: 10,
