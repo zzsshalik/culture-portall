@@ -7,13 +7,13 @@ import Container from '../components/layoutComponents/container/container'
 
 const NotFound = () => {
     return (
-        <Layout>
-            <Head title="404"/>
-            <Container>
-              <h1>Page not found</h1>
-              <p><Link to="/">Head home</Link></p>
-            </Container>
-        </Layout>
+      <Layout>
+        <Head title="404" />
+        <Container>
+          <h1>Page not found</h1>
+          <p><Link to="/">Head home</Link></p>
+        </Container>
+      </Layout>
     )
 }
 

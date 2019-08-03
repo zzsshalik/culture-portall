@@ -31,13 +31,13 @@ const DirectorPage = () => {
     `)
 
     return (
-        <Layout>
-            <Head title="Directors"/>
-            <Container>
-              <h1>Theatre directors page</h1>
-            <DirectorCardsList data={data}/> 
-            </Container>
-        </Layout>
+      <Layout>
+        <Head title="Directors" />
+        <Container>
+          <h1>Theatre directors page</h1>
+          <DirectorCardsList data={data} />
+        </Container>
+      </Layout>
     )
 }
 

@@ -16,14 +16,15 @@ const DevBigCards = ({ data }) => {
             <Card.Body>
               <Media>
                 <img
-                width={128}
-                height={128}
-                src={edge.node.avatar.file.url}
-                alt={edge.node.name}
-                className="align-self-start mr-3"
+                  width={128}
+                  height={128}
+                  src={edge.node.avatar.file.url}
+                  alt={edge.node.name}
+                  className="align-self-start mr-3"
                 />
                 <Media.Body>
-                  <p>A short description of the work: the general impressions, the problems encountered, the list of solved tasks (just a listing).
+                  <p>
+A short description of the work: the general impressions, the problems encountered, the list of solved tasks (just a listing).
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, nemo ratione. Impedit, pariatur fugit nam optio unde doloremque architecto. Quas deserunt distinctio eum ea. Voluptates placeat commodi ea cumque facere?
                   </p>
                 </Media.Body>
