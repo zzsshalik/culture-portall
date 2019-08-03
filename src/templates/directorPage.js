@@ -1,6 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
 
+import { StoreProvider } from "../store/useStore";
+
 import Layout from "../components/layoutComponents/layout/layout"
 import Head from "../components/pageTitle/head"
 
@@ -17,35 +19,37 @@ const DirectorPage = props => {
   const patternRoute = props.data.contentfulPerson
 
   return (
-    <Layout>
-      <Head title={patternRoute.name}/>
-      <ApNav />
-      <Container>
-        <AuthorShortData
-        header={patternRoute.name}
-        photo={patternRoute.photo.file.url}
-        city={patternRoute.birthCity[0].city}
-        country={patternRoute.birthCity[0].country}
-        born={patternRoute.born}
-        dead={patternRoute.dead}
-        activity={patternRoute.activity.activity}
-        />
-        <BiographyTimeline timelineObjects={patternRoute.biographyTimeline} />
+    <StoreProvider>
+      <Layout>
+        <Head title={patternRoute.name}/>
+        <ApNav />
+        <Container>
+          <AuthorShortData
+          header={patternRoute.name}
+          photo={patternRoute.photo.file.url}
+          city={patternRoute.birthCity[0].city}
+          country={patternRoute.birthCity[0].country}
+          born={patternRoute.born}
+          dead={patternRoute.dead}
+          activity={patternRoute.activity.activity}
+          />
+          <BiographyTimeline timelineObjects={patternRoute.biographyTimeline} />
 
-        <ListOfArts artsArrayOfObject={patternRoute.artistWorks} />
-        <MyMapComponent
-          width={"86vw"}
-          height={"30vw"}
-          mapState={{
-            center: [Number.parseInt(patternRoute.placesAtivity[0].Latitude),Number.parseInt(patternRoute.placesAtivity[0].Longitude)],
-            zoom: 10,
-          }}
-          markGeometry={patternRoute.placesAtivity}
-        />
-        <VideoOverlay videoId={patternRoute.youtubeVideoId} />
-        <Gallery photosArrayOfObjects={patternRoute.photoArts} />
-      </Container>
-    </Layout>
+          <ListOfArts artsArrayOfObject={patternRoute.artistWorks} />
+          <MyMapComponent
+            width={"86vw"}
+            height={"30vw"}
+            mapState={{
+              center: [Number.parseInt(patternRoute.placesAtivity[0].Latitude),Number.parseInt(patternRoute.placesAtivity[0].Longitude)],
+              zoom: 10,
+            }}
+            markGeometry={patternRoute.placesAtivity}
+          />
+          <VideoOverlay videoId={patternRoute.youtubeVideoId} />
+          <Gallery photosArrayOfObjects={patternRoute.photoArts} />
+        </Container>
+      </Layout>
+    </StoreProvider>
   )
 }
 

@@ -12,41 +12,31 @@ const IndexPage = () => {
               <h1 className="text-center">{localization[state.language].theatreDirectors}</h1>
 
               <p className="text-justify">
-              {localization[state.language].mainText.p1}
+                {localization[state.language].mainText.p1}
               </p>
 
-              <p className="text-justify">Today the country boasts a diverse range of theatre and drama:</p>
+              <p className="text-justify">{localization[state.language].mainText.p2}</p>
               <ul>
                 <li>
-              puppet theatres can be found in most towns, and are hugely popular with children and
-              adults alike;
+                  {localization[state.language].mainText.li1}
                 </li>
                 <li>
-              professional theatre companies are active across Belarus, many of them dating back to
-              the early 20th century;
-
+                    {localization[state.language].mainText.li2}
                 </li>
-                <li>opera – every major town has its own opera house;</li>
                 <li>
-              ballet has been very popular in Belarus since the 18th century, and most towns
-              have their own ballet; the National Academic Bolshoi Theatre of Ballet of
-              the Republic of Belarus has an excellent reputation.
-
+                    {localization[state.language].mainText.li3}
+                </li>
+                <li>
+                    {localization[state.language].mainText.li4}
                 </li>
               </ul>
 
               <p className="text-justify">
-            In Belarus there are 28 professional theatres: 19 Drama and Music,
-            8 children's and young audience,
-            1 Opera and Ballet theatre. The year of 2016 saw almost
-            1.7 million of theatre attendances.
+                {localization[state.language].mainText.p3}
               </p>
 
               <p className="text-justify">
-            This cultural portal is devoted to the most significant personalities of Belarusian
-            theatre history – famous directors, organizers of theatrical affairs, actors.
-              Here you can find information about their life events, work activity, achievements
-            and take a look at their photos.
+                {localization[state.language].mainText.p3}
               </p>
             </div>
 

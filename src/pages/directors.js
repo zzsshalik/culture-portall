@@ -1,6 +1,8 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
+import { StoreProvider } from "../store/useStore";
+
 import Layout from "../components/layoutComponents/layout/layout"
 import Head from "../components/pageTitle/head"
 import Container from '../components/layoutComponents/container/container'
@@ -31,13 +33,15 @@ const DirectorPage = () => {
     `)
 
     return (
-      <Layout>
-        <Head title="Directors" />
-        <Container>
-          <h1>Theatre directors page</h1>
-          <DirectorCardsList data={data} />
-        </Container>
-      </Layout>
+      <StoreProvider>
+        <Layout>
+          <Head title="Directors" />
+          <Container>
+            <h1>Theatre directors page</h1>
+            <DirectorCardsList data={data} />
+          </Container>
+        </Layout>
+      </StoreProvider>
     )
 }
 

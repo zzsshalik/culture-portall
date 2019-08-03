@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Fragment, useCallback } from "react";
+import { useStore } from "../../../store/useStore";
 
 import Header from '../header/header'
 import Footer from '../footer/footer'
@@ -7,31 +8,22 @@ import layoutStyles from './layout.module.scss'
 
 import localization from '../../../localization/localization'
 
-let lang ='en-US';
+const Layout = props => {
+  const { state, dispatch } = useStore();
 
-class Layout extends React.Component {
-  constructor(props) {
-    super(props);
-     this.changeLanguage = this.changeLanguage.bind(this);
-     this.state = {language: lang}
-  }
+  const changeLanguage = useCallback((newLng) => dispatch({ type: newLng }), [
+    dispatch
+  ]);
 
-   changeLanguage(cahgedLang){
-     this.setState({language: cahgedLang})
-     lang=cahgedLang;
-  }
-
-  render(){
      return (
        <div className={layoutStyles.container}>
          <div className={layoutStyles.content}>
-           <Header changeLanguage={this.changeLanguage} localization={localization[this.state.language]} />
-           {this.props.children}
+           <Header changeLanguage={changeLanguage} localization={localization[state.language]} />
+           {props.children}
          </div>
-         <Footer localization={localization[this.state.language]} />
+         <Footer localization={localization[state.language]} />
        </div>
     )
-}
 }
 
 export default Layout
