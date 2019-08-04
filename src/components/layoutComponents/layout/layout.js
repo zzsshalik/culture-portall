@@ -1,34 +1,38 @@
-import React from 'react'
+import React from "react";
+
+import { connect } from "react-redux"
 
 import Header from '../header/header'
 import Footer from '../footer/footer'
 import '../../../styles/index.scss'
 import layoutStyles from './layout.module.scss'
 
-import localization from '../../../localization/localization'
+const mapStateToProps = ({ language }) => {
+  return { language }
+}
 
-let lang ='en-US';
+const mapDispatchToProps = dispatch => {
+  return { ru: (language) => dispatch({ type: language })}
+}
+
+const ConnectedHeader = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header)
+
+const ConnectedFooter = connect(
+  mapStateToProps
+)(Footer)
 
 class Layout extends React.Component {
-  constructor(props) {
-    super(props);
-     this.changeLanguage = this.changeLanguage.bind(this);
-     this.state = {language: lang}
-  }
-
-   changeLanguage(cahgedLang){
-     this.setState({language: cahgedLang})
-     lang=cahgedLang;
-  }
-
   render(){
      return (
        <div className={layoutStyles.container}>
          <div className={layoutStyles.content}>
-           <Header changeLanguage={this.changeLanguage} localization={localization[this.state.language]} />
+           <ConnectedHeader />
            {this.props.children}
          </div>
-         <Footer localization={localization[this.state.language]} />
+         <ConnectedFooter />
        </div>
     )
 }

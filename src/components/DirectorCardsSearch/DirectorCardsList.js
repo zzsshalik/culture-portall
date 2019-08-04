@@ -1,8 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
-import SearchPlugin from "./SearchPlugin"
 
+import SearchPlugin from "./SearchPlugin"
 import directorsStyles from "./directors.module.scss"
+import localization from '../../localization/localization'
 
 class DirectorCardsList extends React.Component {
   constructor(props) {
@@ -14,6 +15,11 @@ class DirectorCardsList extends React.Component {
         return (nameA < nameB) ? -1: 1;
       }) }
 
+    this.state = { items: this.props.data.allContentfulPerson.edges.filter((item) => {
+      if(item.node.node_locale!== props.language) return false
+      return true
+    }) }
+
     this.updateFilterList = this.updateFilterListHandler.bind(this)
   }
 
@@ -22,12 +28,14 @@ class DirectorCardsList extends React.Component {
   }
 
   render() {
-    const { data } = this.props
+    const { data, language } = this.props
     let state = this.state
     return (
-      <div>
+      <>
+        <h1 className="mt-5 text-center">{localization[language].theatreDirectors}</h1>
         <h2>{data.title}</h2>
-        <SearchPlugin items={data.allContentfulPerson.edges} updateList={this.updateFilterList} />
+        <SearchPlugin items={data.allContentfulPerson.edges} updateList={this.updateFilterList} language={language} />
+
         <ol className={directorsStyles.posts}>
           {state.items.map(item => {
             return (
@@ -36,7 +44,7 @@ class DirectorCardsList extends React.Component {
                 key={item.node.name + item.node.node_locale}
                 id={item.node.name + item.node.node_locale}
               >
-                <Link to={`/directors/en-US/${item.node.slug}`}>
+                <Link to={`/directors/${item.node.node_locale}/${item.node.slug}`}>
                   <img src={item.node.photo.file.url} alt={item.node.name} />
                   <span>
                     <h2>{item.node.name}</h2>
@@ -52,7 +60,7 @@ class DirectorCardsList extends React.Component {
             )
           })}
         </ol>
-      </div>
+      </>
     )
   }
 }

@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layoutComponents/layout/layout"
 import Head from "../components/pageTitle/head"
-
 import ApNav from "../components/authorPageComponents/Authorpagenav/apNav"
 import AuthorShortData from "../components/authorPageComponents/AuthorShortData/AuthorShortData"
 import BiographyTimeline from "../components/authorPageComponents/BiographyTimeline/BiographyTimeline"
@@ -17,11 +16,11 @@ const DirectorPage = ({ data }) => {
   const patternRoute = data.contentfulPerson
 
   return (
-    <Layout>
-      <Head title={patternRoute.name} />
-      <ApNav />
-      <Container>
-        <AuthorShortData
+      <Layout>
+        <Head title={patternRoute.name} />
+        <ApNav />
+        <Container>
+          <AuthorShortData
           header={patternRoute.name}
           photo={patternRoute.photo.file.url}
           city={patternRoute.birthCity[0].city}
@@ -29,23 +28,23 @@ const DirectorPage = ({ data }) => {
           born={patternRoute.born}
           dead={patternRoute.dead}
           activity={patternRoute.activity.activity}
-        />
-        <BiographyTimeline timelineObjects={patternRoute.biographyTimeline} />
+          />
+          <BiographyTimeline timelineObjects={patternRoute.biographyTimeline} />
 
-        <ListOfArts artsArrayOfObject={patternRoute.artistWorks} />
-        <MyMapComponent
-          width="86vw"
-          height="30vw"
-          mapState={{
-            center: [Number.parseInt(patternRoute.placesAtivity[0].Latitude),Number.parseInt(patternRoute.placesAtivity[0].Longitude)],
-            zoom: 10,
-          }}
-          markGeometry={patternRoute.placesAtivity}
-        />
-        <VideoOverlay videoId={patternRoute.youtubeVideoId} />
-        <Gallery photosArrayOfObjects={patternRoute.photoArts} />
-      </Container>
-    </Layout>
+          <ListOfArts artsArrayOfObject={patternRoute.artistWorks} />
+          <MyMapComponent
+            width={"86vw"}
+            height={"30vw"}
+            mapState={{
+              center: [Number.parseInt(patternRoute.placesAtivity[0].Latitude),Number.parseInt(patternRoute.placesAtivity[0].Longitude)],
+              zoom: 10,
+            }}
+            markGeometry={patternRoute.placesAtivity}
+          />
+          <VideoOverlay videoId={patternRoute.youtubeVideoId} />
+          <Gallery photosArrayOfObjects={patternRoute.photoArts} />
+        </Container>
+      </Layout>
   )
 }
 

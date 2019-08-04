@@ -1,10 +1,19 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { connect } from "react-redux"
 
 import Layout from "../components/layoutComponents/layout/layout"
 import Head from "../components/pageTitle/head"
 import Container from '../components/layoutComponents/container/container'
 import DirectorCardsList from "../components/DirectorCardsSearch/DirectorCardsList"
+
+
+const mapStateToProps = ({ language }) => {
+  return { language }
+}
+const ConnectedDirectorCardsList = connect(
+  mapStateToProps
+)(DirectorCardsList)
 
 const DirectorPage = () => {
     const data = useStaticQuery(graphql`
@@ -34,8 +43,7 @@ const DirectorPage = () => {
       <Layout>
         <Head title="Directors" />
         <Container>
-          <h1 className="mt-5 text-center">Belorussian theatre directors</h1>
-          <DirectorCardsList data={data} />
+          <ConnectedDirectorCardsList data={data} />
         </Container>
       </Layout>
     )
