@@ -1,20 +1,33 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { connect } from "react-redux"
 
 import Layout from "../components/layoutComponents/layout/layout"
 import Head from "../components/pageTitle/head"
-import DirectorCards from '../components/directorsCards/directorsCards'
 import Container from '../components/layoutComponents/container/container'
+import DirectorCardsList from "../components/DirectorCardsSearch/DirectorCardsList"
+
+
+const mapStateToProps = ({ language }) => {
+  return { language }
+}
+const ConnectedDirectorCardsList = connect(
+  mapStateToProps
+)(DirectorCardsList)
 
 const DirectorPage = () => {
     const data = useStaticQuery(graphql`
     query {
-        allContentfulPerson(filter:{node_locale: { eq: "en-US"}}) {
+        allContentfulPerson {
             edges {
                 node {
                    name
                    node_locale
                    slug
+                   birthCity {
+                     city
+                     country
+                   }
                    photo{
                     file{
                       url
@@ -27,14 +40,12 @@ const DirectorPage = () => {
     `)
 
     return (
-        <Layout>
-            <Head title="Directors"/>
-            <Container>
-              <h1>Theatre directors page</h1>
-            <p>There should be a search string and suggested search results </p>
-            <DirectorCards data={data} />
-            </Container>
-        </Layout>
+      <Layout>
+        <Head title="Directors" />
+        <Container>
+          <ConnectedDirectorCardsList data={data} />
+        </Container>
+      </Layout>
     )
 }
 

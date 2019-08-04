@@ -1,97 +1,112 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's hello-world starter
-</h1>
+*1.* https://github.com/rolling-scopes-school/tasks/edit/2018-Q3/tasks/codejam-culture-portal.md
+*2.* 27.07.2019/04.08.2019
+*3.* netlify https://wizardly-montalcini-24d393.netlify.com/
+*4.* The link to the page with the PR's https://github.com/zzsshalik/culture-portall/pulls?q=is%3Apr+is%3Aclosed
+Maximum points - 240
 
-Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+*AmidaWolf Yauhen Varapayeu*
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+| time spent | feature |
+|-------------|-------------|
+| 6h | Learning main stack (react+gatsby+contentful) |
+| 4h | Deploying bootstrap, rewrite several componets |
+| 6h | Add Container, reviewing PRs, minor fixes |
+| 2h | reviewing PRs, minor fixes |
+| 3h | Add Developers page |
+| 7h | reviewing PRs, minor fixes |
+| 10h | Deploying Eslint with rules, styling main page, reviewing PRs, more refactoring(fixes+B) |
+| 10h | Styling teatr directors and director pages, more refactoring(fixes+B) |
 
-## 🚀 Quick start
+*zzsshalik Yauhen Shalik*
 
-1.  **Create a Gatsby site.**
+| time spent | feature |
+|-------------|-------------|
+| 12h | Integration with cms and structure of components |
+| 6h | Localization and refactor creating of pages according to localization |
+| 5h | Use redux store and localization connection |
+| 4h | Refactor code |
 
-    Use the Gatsby CLI to create a new site, specifying the hello-world starter.
+*net-ka Ganna Fedosova*
 
-    ```sh
-    # create a new Gatsby site using the hello-world starter
-    gatsby new my-hello-world-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
-    ```
+| time spent | feature |
+|-------------|-------------|
+| 2.5h | Collecting content |
+| 5h | Adding info to CMS and translation |
+| 1h | Add favicon and text to portal |
+| 1h | Add developers cards block |
+| 0.8h | Add person of the day block |
+| 0.6h | Edit authorShortData component |
+| 1h | Add city to all pages and directors sort option |
+| 1h | Code refactoring |
+| 3h | Working with styles and some code fixes |
 
-1.  **Start developing.**
+*LomakoDasha Dasha Lomako*
 
-    Navigate into your new site’s directory and start it up.
+| time spent | feature |
+|-------------|-------------|
+| 8h | Learning main stack (react+gatsby+contentful) |
+| 2h | Add timeline to authors page |
+| 2h | Add gallery to authors page |
+| 1h | Add table of arts to authors page |
+| 1h | Code refactoring |
+| 2h | Display data from cms to the developers page |
 
-    ```sh
-    cd my-hello-world-starter/
-    gatsby develop
-    ```
+*Andrewel Andrew Vlasov*
 
-1.  **Open the source code and start editing!**
+| time spent | feature |
+|-------------|-------------|
+| 8h | Learning main stack (react+gatsby+contentful) |
+| 4h | Add Yandex Map, minor fixes |
+| 2h | Add YouTube video container |
+| 6h | Add Directors Search container |
 
-    Your site is now running at `http://localhost:8000`!
+*ihopeyouwin Ivan Kalinaev*
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+| time spent | feature |
+|-------------|-------------|
+| 4h | Looking throught techs that can apply video to a page |
+| 1h | Made a sample page with video content |
+| 1h | Mastering react anchors npm |
+| 1h | making module with page anchors |
+| 2h | anchor module integration |
+| 0.5h | style add: bezier cub, page positioning, smoothing movement |
+| 2h | additional director's page styling, fixing mobile resolutions |
 
-    Open the `my-hello-world-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+###The main problems of our teamwork:
+1. Should add a Linter to the beginning of the development.
+2. Some team members weren't answering in time when it was necessary to fix something urgently.
+3. It was worth using "git flow" initially. 
 
-## 🧐 What's inside?
+### Min scope - **40**
+- [ ] **10** **+10**  Main page + page with a list of authors + author's page (only html);
+- [ ] **10** **+10**  Page with list of authors contains search widget;
+- [ ] **20** **+20**  Portal has two languages;
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+### Normal scope - **130**
+- [ ] **10** **+10**  Author's page contains timeline;
+- [ ] **10** **+10**  Author's page contains video overlay;
+- [ ] **20** **+20**   Author's page contains photo gallery;
+- [ ] **10** **+10**   Author's page contains map (geowidget);
+- [ ] **from 10 to 40** **+40**    Project is made using react (max 40 - if all widgets are done in React);
+- [ ] **from 0 to 20** **+20**    Design;
+- [ ] **20** **+20**   material-ui / bootstrap is used 
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+### Extra scope - **70**
+- [ ] **10** **+?**    Confidence of the project presentation;
+- [ ] **30** **+30**   Project is made using gatsbyjs;
+- [ ] **20** **+20**   Contentful / netlify cms is used for content management
+- [ ] **10** **+5**   Portal has third language;
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+### Fines
+- **-100** **-0**    if there are less than 5 commits from each active team member. Everyone should merge their own PRs. 
+- up to **-50** **-0**    points for violations
+[stage2-tasks-requirements](https://github.com/rolling-scopes-school/docs/blob/master/ru/stage2-tasks-requirements.md)
+- **-40** **-0**    if there is no worklog for team
+- **-20** **-0**    too primitive (ugly for 2019) design / UX
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
-
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
-
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-hello-world)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+mark calculation:
+**Min scope scope:** +40 / 40
+**Normal scope:** +125 / 130
+**Extra scope:** +55 +?10 / 70
+**Summary:** 40 + 130 + 55 + ?10 = 225 + ?10
+**Maximum points:**  240

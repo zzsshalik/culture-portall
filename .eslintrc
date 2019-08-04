@@ -1,0 +1,14 @@
+{
+  "plugins": ["react", "import"],
+  "parser": "babel-eslint",
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "strict": "off",
+  },
+
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ]
+}
