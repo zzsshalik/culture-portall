@@ -14,56 +14,60 @@ const DevBigCards = ({ data }) => {
               <Card.Subtitle className="mb-2 text-muted">{edge.node.shortDescription.shortDescription}</Card.Subtitle>
             </Card.Header>
             <Card.Body>
-              <Media>
+              <Media className="align-items-center justify-content-center flex-wrap">
                 <img
                   width={128}
                   height={128}
                   src={edge.node.avatar.file.url}
                   alt={edge.node.name}
-                  className="align-self-start mr-3"
+                  className="ml-4 mr-4"
                 />
                 <Media.Body>
-                  <p className="align-self-center ml-3">{edge.node.longDescription.longDescription}</p>
+                  <p className="ml-4 mr-4">{edge.node.longDescription.longDescription}</p>
                 </Media.Body>
               </Media>
+              
               <Card>
                 <h4 className="text-center mt-3">Worklog</h4> 
-                <Table striped bordered hover>
-                  <thead className="thead-light">
-                    <tr>
-                      <th className="text-center">Start time</th>
-                      <th className="text-center">End time</th>
-                      <th className="text-center">Time spent</th>
-                      <th className="text-center">Feature</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {edge.node.features.map((item) => {
-                      return (
-                        <tr key={item.id+item.feature+edge.node.name}>
-                          <td className="text-center">{item.start}</td>
-                          <td className="text-center">{item.end}</td>
-                          <td className="text-center">{item.spent}</td>
-                          <td>{item.feature}</td>
-                        </tr>
-                    )
-                    })}
-                  </tbody>
-                </Table>
+                <div className="table-responsive">
+                  <Table striped bordered hover>
+                    <thead className="thead-light">
+                      <tr>
+                        <th className="text-center">Start time</th>
+                        <th className="text-center">End time</th>
+                        <th className="text-center">Time spent</th>
+                        <th className="text-center">Feature</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {edge.node.features.map((item) => {
+                        return (
+                          <tr key={item.id+item.feature+edge.node.name}>
+                            <td className="text-center">{item.start}</td>
+                            <td className="text-center">{item.end}</td>
+                            <td className="text-center">{item.spent}</td>
+                            <td>{item.feature}</td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </Table>
+                </div>
+                
                   
               </Card>
               <Card className="text-center">
                 <h4 className="text-center mt-4">PR list and activity</h4>  
-                <Media className="justify-content-center">
+                <Media className="align-items-center flex-wrap">
                   <img
                     width={360}
                     height={192}
                     src={edge.node.contributionImg.file.url}
                     alt={edge.node.contributionImg.title}
-                    className="ml-3 mr-3"
+                    className="ml-2 mr-2"
                   />
                   <Media.Body>
-                    <a className="mt-5" href={edge.node.prList[0].link} target='_blank' rel='noopener noreferrer'>Link to PRs</a>
+                    <a className="ml-5 mr-5" href={edge.node.prList[0].link} target='_blank' rel='noopener noreferrer'>Link to PRs</a>
                   </Media.Body>
                 </Media>
               </Card>
