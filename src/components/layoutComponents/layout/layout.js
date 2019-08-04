@@ -1,6 +1,6 @@
-import React from "react";
-
+import React from "react"
 import { connect } from "react-redux"
+import PropTypes from 'prop-types'
 
 import Header from '../header/header'
 import Footer from '../footer/footer'
@@ -24,9 +24,7 @@ const ConnectedFooter = connect(
   mapStateToProps
 )(Footer)
 
-class Layout extends React.Component {
-  render(){
-    const {children} = this.props
+const Layout = ({ children }) => {
      return (
        <div className={layoutStyles.container}>
          <div className={layoutStyles.content}>
@@ -37,6 +35,9 @@ class Layout extends React.Component {
        </div>
     )
 }
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 export default Layout

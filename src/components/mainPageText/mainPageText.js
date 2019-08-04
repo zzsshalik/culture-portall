@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import localization from '../../localization/localization'
 
@@ -35,4 +36,9 @@ const IndexPage = ({ language }) => {
       </>
     )
 }
+
+IndexPage.propTypes = {
+  language: PropTypes.string.isRequired,
+}
+
 export default IndexPage

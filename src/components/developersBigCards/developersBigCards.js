@@ -1,5 +1,6 @@
 import React from 'react'
-import { Card, Media, Table } from 'react-bootstrap';
+import { Card, Media, Table } from 'react-bootstrap'
+import PropTypes from 'prop-types'
 
 const DevBigCards = ({ data }) => {
   return(
@@ -27,7 +28,7 @@ const DevBigCards = ({ data }) => {
                 </Media.Body>
               </Media>
               <Card>
-                <h4 className="text-center mt-3">Worklog</h4> 
+                <h4 className="text-center mt-3">Worklog</h4>
                 <Table striped bordered hover>
                   <thead className="thead-light">
                     <tr>
@@ -50,10 +51,10 @@ const DevBigCards = ({ data }) => {
                     })}
                   </tbody>
                 </Table>
-                  
+
               </Card>
               <Card className="text-center">
-                <h4 className="text-center mt-4">PR list and activity</h4>  
+                <h4 className="text-center mt-4">PR list and activity</h4>
                 <Media className="justify-content-center">
                   <img
                     width={360}
@@ -73,6 +74,10 @@ const DevBigCards = ({ data }) => {
       })}
     </>
   )
+}
+
+DevBigCards.propTypes = {
+  data: PropTypes.objectOf(PropTypes.object).isRequired,
 }
 
 export default DevBigCards

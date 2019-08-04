@@ -1,12 +1,14 @@
 import React from 'react'
 import ModalVideo from 'react-modal-video'
-import 'react-modal-video/scss/modal-video.scss';
-import { Button } from 'react-bootstrap';
-
-import videoStyles from './VideoOverlay.module.scss';
+import PropTypes from 'prop-types'
+import { Button } from 'react-bootstrap'
+import 'react-modal-video/scss/modal-video.scss'
+import videoStyles from './VideoOverlay.module.scss'
 
 class VideoOverlay extends React.Component {
-
+  static propTypes = {
+    videoId: PropTypes.string.isRequired,
+}
   constructor () {
     super()
     this.state = {

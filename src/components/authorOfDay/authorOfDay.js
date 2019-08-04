@@ -4,10 +4,10 @@ import {
   Card,
   Media,
   Button,
-} from 'react-bootstrap';
+} from 'react-bootstrap'
+import PropTypes from 'prop-types'
 
 import authorOfDayStyles from './authorOfDay.module.scss'
-
 
 const AuthorOfDay  = ({ data }) => {
   return(
@@ -64,5 +64,10 @@ const AuthorOfDay  = ({ data }) => {
     </>
   )
 }
+
+AuthorOfDay.propTypes = {
+  data: PropTypes.objectOf(PropTypes.object).isRequired,
+}
+
 
 export default AuthorOfDay
