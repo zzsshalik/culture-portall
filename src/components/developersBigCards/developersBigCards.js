@@ -63,7 +63,7 @@ const DevBigCards = ({ data }) => {
                     className="ml-3 mr-3"
                   />
                   <Media.Body>
-                    <a className="mt-5" href={edge.node.prList[0].link}>Link to PRs</a>
+                    <a className="mt-5" href={edge.node.prList[0].link} target='_blank' rel='noopener noreferrer'>Link to PRs</a>
                   </Media.Body>
                 </Media>
               </Card>
