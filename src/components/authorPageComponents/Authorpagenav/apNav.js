@@ -1,7 +1,7 @@
 import React from 'react'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import Apns from './apNav.module.scss';
 
+import Apns from './apNav.module.scss';
 
 class ApNav extends React.Component {
     render(){
