@@ -1,6 +1,8 @@
 import React from 'react'
 import ModalVideo from 'react-modal-video'
 import 'react-modal-video/scss/modal-video.scss';
+import { Button } from 'react-bootstrap';
+
 import videoStyles from './VideoOverlay.module.scss';
 
 class VideoOverlay extends React.Component {
@@ -22,7 +24,7 @@ class VideoOverlay extends React.Component {
       <div className={videoStyles.wrapper}>
         <h3 className={videoStyles.video_title}>YouTube</h3>
         <ModalVideo channel='youtube' isOpen={this.state.isOpen} videoId={this.props.videoId} onClose={() => this.setState({isOpen: false})} />
-        <button onClick={this.openModal}>Open</button>
+        <Button variant="secondary" onClick={this.openModal}>Open</Button>
       </div>
     )
   }

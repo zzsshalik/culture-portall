@@ -3,14 +3,13 @@ import { Link } from "gatsby"
 
 import SearchPlugin from "./SearchPlugin"
 import directorsStyles from "./directors.module.scss"
-
-import loacalization from '../../localization/localization'
+import localization from '../../localization/localization'
 
 class DirectorCardsList extends React.Component {
   constructor(props) {
     super(props)
-
-    this.state = { items: this.props.data.allContentfulPerson.edges.sort((a, b) => {
+    const { data } = this.props
+    this.state = { items: data.allContentfulPerson.edges.sort((a, b) => {
         const nameA = a.node.name
         const nameB = b.node.name
         return (nameA < nameB) ? -1: 1;
@@ -29,14 +28,16 @@ class DirectorCardsList extends React.Component {
   }
 
   render() {
-    const { props }=this;
+    const { data, language } = this.props
+    let state = this.state
     return (
       <>
-        <h1>{loacalization[props.language].theatreDirectors}</h1>
-        <h2>{props.data.title}</h2>
-        <SearchPlugin items={props.data.allContentfulPerson.edges} updateList={this.updateFilterList} language={props.language} />
+        <h1 className="mt-5 text-center">{localization[language].theatreDirectors}</h1>
+        <h2>{data.title}</h2>
+        <SearchPlugin items={data.allContentfulPerson.edges} updateList={this.updateFilterList} language={language} />
+
         <ol className={directorsStyles.posts}>
-          {this.state.items.map(item => {
+          {state.items.map(item => {
             return (
               <li
                 className={directorsStyles.post}
@@ -48,7 +49,9 @@ class DirectorCardsList extends React.Component {
                   <span>
                     <h2>{item.node.name}</h2>
                     <p>
-                      {item.node.birthCity[0].city},{" "}
+                      {item.node.birthCity[0].city}
+,
+                      {" "}
                       {item.node.birthCity[0].country}
                     </p>
                   </span>

@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layoutComponents/layout/layout"
 import Head from "../components/pageTitle/head"
-
 import ApNav from "../components/authorPageComponents/Authorpagenav/apNav"
 import AuthorShortData from "../components/authorPageComponents/AuthorShortData/AuthorShortData"
 import BiographyTimeline from "../components/authorPageComponents/BiographyTimeline/BiographyTimeline"
@@ -13,12 +12,12 @@ import MyMapComponent from "../components/authorPageComponents/Map/Map"
 import VideoOverlay from "../components/authorPageComponents/VideoOverlay/VideoOverlay"
 import Container from '../components/layoutComponents/container/container'
 
-const DirectorPage = props => {
-  const patternRoute = props.data.contentfulPerson
+const DirectorPage = ({ data }) => {
+  const patternRoute = data.contentfulPerson
 
   return (
       <Layout>
-        <Head title={patternRoute.name}/>
+        <Head title={patternRoute.name} />
         <ApNav />
         <Container>
           <AuthorShortData

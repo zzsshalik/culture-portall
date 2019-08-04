@@ -7,14 +7,14 @@ class Gallery extends React.Component {
 
     render() {
         const imagesArray = [];
-
+        const { photosArrayOfObjects } = this.props
         return(
-            <React.Fragment>
-                <h3 id="AGallery" className={galleryStyles.gallery_title}>Gallery</h3>
+          <React.Fragment>
+            <h3 id="AGallery" className={galleryStyles.gallery_title}>Gallery</h3>
 
-                {this.props.photosArrayOfObjects.map((edge) => {
+            {photosArrayOfObjects.map((edge) => {
                     const imageInfo = {};
-                    const delimiter = edge.description.search('x'); 
+                    const delimiter = edge.description.search('x');
                     const sizeLength = edge.description.length;
 
                     imageInfo.src = edge.file.url;
@@ -24,8 +24,8 @@ class Gallery extends React.Component {
                     imagesArray.push(imageInfo);
                 })}
 
-                <GalleryImage images={imagesArray}/>
-            </React.Fragment>
+            <GalleryImage images={imagesArray} />
+          </React.Fragment>
         )
     }
 }

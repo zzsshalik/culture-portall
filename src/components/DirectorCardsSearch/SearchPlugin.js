@@ -1,4 +1,6 @@
 import React from "react"
+import { Form } from 'react-bootstrap';
+
 import directorsStyles from "./directors.module.scss"
 
 class SearchPlugin extends React.Component {
@@ -29,11 +31,13 @@ class SearchPlugin extends React.Component {
 
   render() {
     return (
-      <input
-        className={directorsStyles.search}
-        placeholder="Search"
-        onChange={this.onTextChanged}
-      />
+      <Form className="mx-5 my-5">
+        <Form.Control
+          placeholder="Search"
+          onChange={this.onTextChanged}
+        />
+      </Form>
+
     )
   }
 }
