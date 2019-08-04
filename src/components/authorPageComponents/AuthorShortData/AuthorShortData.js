@@ -1,9 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-import authorStyles from './AuthorShortData.module.scss';
+import authorStyles from './AuthorShortData.module.scss'
 
-class AuthorShortData extends React.Component {
-    render() {
+const AuthorShortData = (props) => {
       const {
           dead,
           header,
@@ -12,7 +12,7 @@ class AuthorShortData extends React.Component {
           country,
           born,
           activity
-      } = this.props
+      } = props
         let deadPerson;
         if (dead) {
           deadPerson = dead;
@@ -42,7 +42,19 @@ class AuthorShortData extends React.Component {
             </div>
           </React.Fragment>
         )
-    }
 }
 
+AuthorShortData.propTypes = {
+  dead: PropTypes.string,
+  header: PropTypes.string.isRequired,
+  photo: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
+  born: PropTypes.string.isRequired,
+  activity: PropTypes.string.isRequired,
+}
+
+AuthorShortData.defaultProps = {
+  dead: 'Alive'
+}
 export default AuthorShortData

@@ -1,11 +1,17 @@
 import React from "react"
 import { Link } from "gatsby"
+import PropTypes from 'prop-types'
 
 import SearchPlugin from "./SearchPlugin"
 import directorsStyles from "./directors.module.scss"
 import localization from '../../localization/localization'
 
 class DirectorCardsList extends React.Component {
+  static propTypes = {
+    data: PropTypes.objectOf(PropTypes.object).isRequired,
+    language: PropTypes.string.isRequired,
+  }
+
   constructor(props) {
     super(props)
     const { data } = this.props

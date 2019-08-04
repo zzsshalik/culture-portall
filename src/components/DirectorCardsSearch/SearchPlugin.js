@@ -1,7 +1,14 @@
 import React from "react"
-import { Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap'
+import PropTypes from 'prop-types'
 
 class SearchPlugin extends React.Component {
+  static propTypes = {
+    items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    updateList: PropTypes.func.isRequired,
+    language: PropTypes.string.isRequired,
+  }
+
   constructor(props) {
     super(props)
     this.onTextChanged = this.onTextChangedHandler.bind(this)

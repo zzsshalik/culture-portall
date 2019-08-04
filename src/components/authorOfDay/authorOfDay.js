@@ -4,7 +4,8 @@ import {
   Card,
   Media,
   Button,
-} from 'react-bootstrap';
+} from 'react-bootstrap'
+import PropTypes from 'prop-types'
 
 import authorOfDayStyles from './authorOfDay.module.scss'
 import localization from '../../localization/localization'
@@ -70,5 +71,11 @@ const AuthorOfDay  = ({ data, language }) => {
     </>
   )
 }
+
+AuthorOfDay.propTypes = {
+  data: PropTypes.objectOf(PropTypes.object).isRequired,
+  language: PropTypes.string.isRequired,
+}
+
 
 export default AuthorOfDay

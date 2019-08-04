@@ -1,5 +1,6 @@
 import React from "react"
 import { YMaps, Map, Placemark } from "react-yandex-maps"
+import PropTypes from 'prop-types'
 
 const MyMapComponent = ({
   mapState,
@@ -22,5 +23,10 @@ const MyMapComponent = ({
     </Map>
   </YMaps>
 )
+
+MyMapComponent.propTypes = {
+  mapState: PropTypes.objectOf(PropTypes.any).isRequired,
+  markGeometry: PropTypes.arrayOf(PropTypes.any).isRequired,
+}
 
 export default MyMapComponent

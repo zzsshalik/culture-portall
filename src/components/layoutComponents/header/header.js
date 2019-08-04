@@ -1,16 +1,15 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap'
+import PropTypes from 'prop-types'
 
 import Container from '../container/container'
 import headerStyles from "./header.module.scss"
-import 'bootstrap/dist/css/bootstrap.css';
-
+import 'bootstrap/dist/css/bootstrap.css'
 import SwitchLanguage from '../../SwitchLanguage/SwitchLanguage'
-
 import localization from '../../../localization/localization'
 
-const Header = ({ language,ru }) => (
+const Header = ({ language, ru }) => (
 
   <header className={headerStyles.header}>
     <Container>
@@ -34,5 +33,10 @@ const Header = ({ language,ru }) => (
     </Container>
   </header>
   )
+
+  Header.propTypes = {
+    language: PropTypes.string.isRequired,
+    ru: PropTypes.func.isRequired,
+  }
 
 export default Header

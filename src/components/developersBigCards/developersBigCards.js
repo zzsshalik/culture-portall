@@ -1,5 +1,6 @@
 import React from 'react'
-import { Card, Media, Table } from 'react-bootstrap';
+import { Card, Media, Table } from 'react-bootstrap'
+import PropTypes from 'prop-types'
 
 const DevBigCards = ({ data }) => {
   return(
@@ -52,8 +53,7 @@ const DevBigCards = ({ data }) => {
                       })}
                     </tbody>
                   </Table>
-                </div>
-                
+                </div>             
                   
               </Card>
               <Card className="text-center">
@@ -77,6 +77,10 @@ const DevBigCards = ({ data }) => {
       })}
     </>
   )
+}
+
+DevBigCards.propTypes = {
+  data: PropTypes.objectOf(PropTypes.object).isRequired,
 }
 
 export default DevBigCards

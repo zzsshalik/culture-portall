@@ -2,7 +2,8 @@ import React from 'react'
 import {
   CardDeck,
   Card,
-} from 'react-bootstrap';
+} from 'react-bootstrap'
+import PropTypes from 'prop-types'
 
 import developersStyles from './developers.module.scss'
 
@@ -22,10 +23,14 @@ const DevCards = ({ data }) => {
                 </a>
               </Card.Body>
             </Card>
-      ))}
+          ))}
         </CardDeck>
       </>
     )
+}
+
+DevCards.propTypes = {
+  data: PropTypes.objectOf(PropTypes.object).isRequired,
 }
 
 export default DevCards
