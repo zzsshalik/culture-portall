@@ -26,11 +26,12 @@ const ConnectedFooter = connect(
 
 class Layout extends React.Component {
   render(){
+    const {children} = this.props
      return (
        <div className={layoutStyles.container}>
          <div className={layoutStyles.content}>
            <ConnectedHeader />
-           {this.props.children}
+           {children}
          </div>
          <ConnectedFooter />
        </div>

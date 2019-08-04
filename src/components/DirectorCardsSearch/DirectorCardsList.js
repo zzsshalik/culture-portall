@@ -15,7 +15,7 @@ class DirectorCardsList extends React.Component {
         return (nameA < nameB) ? -1: 1;
       }) }
 
-    this.state = { items: this.props.data.allContentfulPerson.edges.filter((item) => {
+    this.state = { items: data.allContentfulPerson.edges.filter((item) => {
       if(item.node.node_locale!== props.language) return false
       return true
     }) }

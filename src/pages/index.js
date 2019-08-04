@@ -7,7 +7,6 @@ import Head from "../components/pageTitle/head"
 import DevCards from '../components/developersCards/developersCards'
 import Container from '../components/layoutComponents/container/container'
 import AuthorOfDay  from '../components/authorOfDay/authorOfDay'
-
 import MainPageText from '../components/mainPageText/mainPageText'
 
 const mapStateToProps = ({ language }) => {
@@ -16,7 +15,7 @@ const mapStateToProps = ({ language }) => {
   const ConnectedMainPageText = connect(
     mapStateToProps
   )(MainPageText)
-  
+
 
 const IndexPage = () => {
     const data = useStaticQuery(graphql`

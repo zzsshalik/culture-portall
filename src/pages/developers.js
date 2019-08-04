@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
-
 import Layout from "../components/layoutComponents/layout/layout"
 import Head from "../components/pageTitle/head"
 import Container from '../components/layoutComponents/container/container'
@@ -15,7 +14,7 @@ const DevelopersPage = () => {
           node {
             name
             linkToGithub
-            githubNickname 
+            githubNickname
             avatar {
               file {
                 url
@@ -35,14 +34,14 @@ const DevelopersPage = () => {
             }
             prList {
               link
-            } 
+            }
             features {
               id
               start
               end
               spent
               feature
-            } 
+            }
           }
         }
       }

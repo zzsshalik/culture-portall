@@ -8,7 +8,8 @@ class SwitchLanguage extends React.Component {
       }
 
     handleClick(e){
-        this.props.changeLanguage(e.target.id)
+        const {changeLanguage} = this.props
+        changeLanguage(e.target.id)
     }
 
     render(){
