@@ -1,17 +1,17 @@
 import React from 'react'
-import { Card, Accordion, Media, Table } from 'react-bootstrap';
+import { Card, Media, Table } from 'react-bootstrap';
 
 const DevBigCards = ({ data }) => {
   return(
     <>
       {data.allContentfulDevelopersInfo.edges.map((edge) => {
         return(
-          <Card bg="light" key={edge.node.name+edge.node.node_locale+"big"} className="mb-5">
+          <Card bg="light" key={edge.node.name+edge.node.node_locale+"big"} className="border-info mb-5">
             <Card.Header>
               <Card.Title>
                 <h2>{edge.node.name}</h2>
               </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">The man who did everything for this project</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">{edge.node.shortDescription.shortDescription}</Card.Subtitle>
             </Card.Header>
             <Card.Body>
               <Media>
@@ -23,73 +23,50 @@ const DevBigCards = ({ data }) => {
                   className="align-self-start mr-3"
                 />
                 <Media.Body>
-                  <p>
-A short description of the work: the general impressions, the problems encountered, the list of solved tasks (just a listing).
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, nemo ratione. Impedit, pariatur fugit nam optio unde doloremque architecto. Quas deserunt distinctio eum ea. Voluptates placeat commodi ea cumque facere?
-                  </p>
+                  <p className="align-self-center ml-3">{edge.node.longDescription.longDescription}</p>
                 </Media.Body>
               </Media>
-              <Accordion>
-                <Card>
-                  <Accordion.Toggle as={Card.Header} eventKey="0">
-                    Work-log
-                  </Accordion.Toggle>
-                  <Accordion.Collapse eventKey="0">
-                    <Card.Body>
-                      <Table striped bordered hover>
-                        <thead>
-                          <tr>
-                            <th>Start time</th>
-                            <th>End time</th>
-                            <th>Time spent</th>
-                            <th>Feature</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Jul 27</td>
-                            <td>Jul 28</td>
-                            <td>16h</td>
-                            <td>create base structure</td>
-                          </tr>
-                          <tr>
-                            <td>Jul 27</td>
-                            <td>Jul 28</td>
-                            <td>16h</td>
-                            <td>create base structure</td>
-                          </tr>
-                          <tr>
-                            <td>Jul 27</td>
-                            <td>Jul 28</td>
-                            <td>16h</td>
-                            <td>create base structure</td>
-                          </tr>
-                          <tr>
-                            <td>Jul 27</td>
-                            <td>Jul 28</td>
-                            <td>16h</td>
-                            <td>create base structure</td>
-                          </tr>
-                          <tr>
-                            <td>Jul 27</td>
-                            <td>Jul 28</td>
-                            <td>16h</td>
-                            <td>create base structure</td>
-                          </tr>
-                        </tbody>
-                      </Table>
-                    </Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-                <Card>
-                  <Accordion.Toggle as={Card.Header} eventKey="1">
-                    PR list and activity
-                  </Accordion.Toggle>
-                  <Accordion.Collapse eventKey="1">
-                    <Card.Body>Maybe use github api or just add in CMS links + images.</Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-              </Accordion>
+              <Card>
+                <h4 className="text-center mt-3">Worklog</h4> 
+                <Table striped bordered hover>
+                  <thead className="thead-light">
+                    <tr>
+                      <th className="text-center">Start time</th>
+                      <th className="text-center">End time</th>
+                      <th className="text-center">Time spent</th>
+                      <th className="text-center">Feature</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {edge.node.features.map((item) => {
+                      return (
+                        <tr key={item.id+item.feature+edge.node.name}>
+                          <td className="text-center">{item.start}</td>
+                          <td className="text-center">{item.end}</td>
+                          <td className="text-center">{item.spent}</td>
+                          <td>{item.feature}</td>
+                        </tr>
+                    )
+                    })}
+                  </tbody>
+                </Table>
+                  
+              </Card>
+              <Card className="text-center">
+                <h4 className="text-center mt-4">PR list and activity</h4>  
+                <Media className="justify-content-center">
+                  <img
+                    width={360}
+                    height={192}
+                    src={edge.node.contributionImg.file.url}
+                    alt={edge.node.contributionImg.title}
+                    className="ml-3 mr-3"
+                  />
+                  <Media.Body>
+                    <a className="mt-5" href={edge.node.prList[0].link}>Link to PRs</a>
+                  </Media.Body>
+                </Media>
+              </Card>
             </Card.Body>
           </Card>
         )
