@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import { StoreProvider } from "../store/useStore";
 
 import Layout from "../components/layoutComponents/layout/layout"
 import Head from "../components/pageTitle/head"
@@ -27,15 +26,13 @@ const DevelopersPage = () => {
   `)
 
     return (
-      <StoreProvider>
-        <Layout>
-          <Head title="Developers" />
-          <Container>
-            <h1>Developers: TEAM12</h1>
-            <DevBigCard data={data} />
-          </Container>
-        </Layout>
-      </ StoreProvider>
+      <Layout>
+        <Head title="Developers" />
+        <Container>
+          <h1>Developers: TEAM12</h1>
+          <DevBigCard data={data} />
+        </Container>
+      </Layout>
     )
 }
 

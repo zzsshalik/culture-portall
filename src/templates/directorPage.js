@@ -1,8 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import { StoreProvider } from "../store/useStore";
-
 import Layout from "../components/layoutComponents/layout/layout"
 import Head from "../components/pageTitle/head"
 
@@ -19,7 +17,6 @@ const DirectorPage = props => {
   const patternRoute = props.data.contentfulPerson
 
   return (
-    <StoreProvider>
       <Layout>
         <Head title={patternRoute.name}/>
         <ApNav />
@@ -49,7 +46,6 @@ const DirectorPage = props => {
           <Gallery photosArrayOfObjects={patternRoute.photoArts} />
         </Container>
       </Layout>
-    </StoreProvider>
   )
 }
 
