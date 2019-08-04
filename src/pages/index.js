@@ -7,7 +7,6 @@ import Head from "../components/pageTitle/head"
 import DevCards from '../components/developersCards/developersCards'
 import Container from '../components/layoutComponents/container/container'
 import AuthorOfDay  from '../components/authorOfDay/authorOfDay'
-
 import MainPageText from '../components/mainPageText/mainPageText'
 
 const mapStateToProps = ({ language }) => {
@@ -16,7 +15,11 @@ const mapStateToProps = ({ language }) => {
   const ConnectedMainPageText = connect(
     mapStateToProps
   )(MainPageText)
-  
+
+  const  ConnectedAuthorOfDay = connect(
+    mapStateToProps
+  )(AuthorOfDay)
+
 
 const IndexPage = () => {
     const data = useStaticQuery(graphql`
@@ -35,9 +38,10 @@ const IndexPage = () => {
                 }
             }
         }
-        allContentfulPerson(filter:{node_locale: { eq: "en-US"}}) {
+        allContentfulPerson {
             edges{
                 node{
+                    node_locale
                     slug
                     name
                     photo{
@@ -59,11 +63,12 @@ const IndexPage = () => {
         <Head title="Home" />
         <Container>
           <ConnectedMainPageText />
-          <AuthorOfDay data={data} />
+          <ConnectedAuthorOfDay data={data} />
           <DevCards data={data} />
         </Container>
       </Layout>
     )
+
 }
 
 export default IndexPage

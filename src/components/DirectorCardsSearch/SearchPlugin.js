@@ -1,13 +1,18 @@
 import React from "react"
 import { Form } from 'react-bootstrap';
 
-import directorsStyles from "./directors.module.scss"
-
 class SearchPlugin extends React.Component {
   constructor(props) {
     super(props)
     this.onTextChanged = this.onTextChangedHandler.bind(this)
     this.search = this.searchHandler.bind(this)
+  }
+  componentDidUpdate(prevProps, prevState, prevContext){
+    if(this.props.language!==prevProps.language) 
+    { 
+      this.searchHandler('')
+    }
+    return true
   }
 
   onTextChangedHandler(e) {
@@ -22,19 +27,23 @@ class SearchPlugin extends React.Component {
   }
 
   searchHandler(searchString) {
-    let filteredList = this.props.items.filter(item => {
+    const { items, updateList } = this.props
+    const filteredList = items.filter(item => {
+      const { language } = this.props
       let directorNameCity =
         item.node.name.toLowerCase() +
         item.node.birthCity[0].city.toLowerCase() +
-        item.node.birthCity[0].country.toLowerCase() 
-        if(this.props.language==='by' && item.node.node_locale==='ru') {return directorNameCity.search(searchString.toLowerCase()) !== -1}
-        if(item.node.node_locale !== this.props.language) {return false}
+        item.node.birthCity[0].country.toLowerCase()
+        if(language==='by' && item.node.node_locale==='ru') {return directorNameCity.search(searchString.toLowerCase()) !== -1}
+        if(item.node.node_locale !== language) {return false}
       return directorNameCity.search(searchString.toLowerCase()) !== -1
     })
 
-    this.props.updateList(filteredList)
+    updateList(filteredList)
   }
 
+
+ 
   render() {
     return (
       <Form className="mx-5 my-5">
