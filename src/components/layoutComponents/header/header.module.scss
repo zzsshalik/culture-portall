@@ -15,6 +15,11 @@
 .navBar{
   display: flex !important;
   justify-content: space-between !important;
+  @media (min-width: 768px) and (max-width: 992px) {
+    :nth-child(2) > a:nth-child(2){
+      min-width: 160px;
+    }
+  }
   @media (min-width: 320px) and (max-width: 767px) {
     display: flex !important;
     flex-direction: column !important;
