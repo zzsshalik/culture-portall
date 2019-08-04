@@ -28,7 +28,7 @@ class DirectorCardsList extends React.Component {
       }) }
     this.updateFilterList = this.updateFilterListHandler.bind(this)
   }
- 
+
   updateFilterListHandler(filteredList) {
     this.setState({ items: filteredList })
   }
@@ -39,7 +39,7 @@ class DirectorCardsList extends React.Component {
       <>
         <h1 className="mt-5 text-center">{localization[language].theatreDirectors}</h1>
         <h2>{data.title}</h2>
-        <SearchPlugin items={data.allContentfulPerson.edges} updateList={this.updateFilterList} language={language}/>
+        <SearchPlugin items={data.allContentfulPerson.edges} updateList={this.updateFilterList} language={language} />
         <ol className={directorsStyles.posts}>
           {state.items.map(item => {
             return (

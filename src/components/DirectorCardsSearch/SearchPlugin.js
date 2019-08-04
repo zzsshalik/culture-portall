@@ -14,9 +14,10 @@ class SearchPlugin extends React.Component {
     this.onTextChanged = this.onTextChangedHandler.bind(this)
     this.search = this.searchHandler.bind(this)
   }
-  componentDidUpdate(prevProps, prevState, prevContext){
-    if(this.props.language!==prevProps.language) 
-    { 
+  componentDidUpdate(prevProps){
+    const {language} = this.props
+    if(language!==prevProps.language)
+    {
       this.searchHandler('')
     }
     return true
@@ -50,7 +51,7 @@ class SearchPlugin extends React.Component {
   }
 
 
- 
+
   render() {
     return (
       <Form className="mx-5 my-5">

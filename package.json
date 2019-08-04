@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "culture-portal",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
-  "version": "0.1.0",
+  "description": "Culture portal about Belarusian theatre directors",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -12,6 +12,14 @@
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
+  "keywords": [
+    "culture portal",
+    "Belarusian theatre directors"
+  ],
+  "author": {
+    "name": "TEAM12"
+  },
+  "homepage": "https://github.com/zzsshalik/culture-portall#readme",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "13.2.0",
     "bootstrap": "4.3.1",
@@ -50,9 +58,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+    "url": "https://github.com/zzsshalik/culture-portall"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/zzsshalik/culture-portall/issues"
   }
 }
