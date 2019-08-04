@@ -48,7 +48,7 @@ const AuthorOfDay  = ({ data }) => {
                     <Button
                       variant="outline-dark"
                       as={Link}
-                      to={`/directors/${edge.node.slug}`}
+                      to={`/directors/en-US/${edge.node.slug}`}
                       className="mt-3"
                       block
                     >

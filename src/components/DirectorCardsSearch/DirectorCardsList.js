@@ -1,7 +1,10 @@
 import React from "react"
-import SearchPlugin from "./SearchPlugin"
 import { Link } from "gatsby"
+
+import SearchPlugin from "./SearchPlugin"
 import directorsStyles from "./directors.module.scss"
+
+import loacalization from '../../localization/localization'
 
 class DirectorCardsList extends React.Component {
   constructor(props) {
@@ -13,6 +16,11 @@ class DirectorCardsList extends React.Component {
         return (nameA < nameB) ? -1: 1;
       }) }
 
+    this.state = { items: this.props.data.allContentfulPerson.edges.filter((item) => {
+      if(item.node.node_locale!== props.language) return false
+      return true
+    }) }
+
     this.updateFilterList = this.updateFilterListHandler.bind(this)
   }
 
@@ -21,10 +29,12 @@ class DirectorCardsList extends React.Component {
   }
 
   render() {
+    const { props }=this;
     return (
-      <div>
-        <h2>{this.props.data.title}</h2>
-        <SearchPlugin items={this.props.data.allContentfulPerson.edges} updateList={this.updateFilterList} />
+      <>
+        <h1>{loacalization[props.language].theatreDirectors}</h1>
+        <h2>{props.data.title}</h2>
+        <SearchPlugin items={props.data.allContentfulPerson.edges} updateList={this.updateFilterList} language={props.language} />
         <ol className={directorsStyles.posts}>
           {this.state.items.map(item => {
             return (
@@ -33,7 +43,7 @@ class DirectorCardsList extends React.Component {
                 key={item.node.name + item.node.node_locale}
                 id={item.node.name + item.node.node_locale}
               >
-                  <Link to={`/directors/en-US/${item.node.slug}`}>
+                <Link to={`/directors/${item.node.node_locale}/${item.node.slug}`}>
                   <img src={item.node.photo.file.url} alt={item.node.name} />
                   <span>
                     <h2>{item.node.name}</h2>
@@ -47,7 +57,7 @@ class DirectorCardsList extends React.Component {
             )
           })}
         </ol>
-      </div>
+      </>
     )
   }
 }
