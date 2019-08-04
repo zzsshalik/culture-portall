@@ -47,7 +47,7 @@ class DirectorCardsList extends React.Component {
                 <Link to={`/directors/${item.node.node_locale}/${item.node.slug}`}>
                   <img src={item.node.photo.file.url} alt={item.node.name} />
                   <span>
-                    <h2>{item.node.name}</h2>
+                    <h2 className={directorsStyles.dirName}>{item.node.name}</h2>
                     <p>
                       {item.node.birthCity[0].city}
 ,

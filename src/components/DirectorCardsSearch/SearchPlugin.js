@@ -15,6 +15,12 @@ class SearchPlugin extends React.Component {
     this.search(searchString)
   }
 
+  onEnter(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+    }
+  }
+
   searchHandler(searchString) {
     let filteredList = this.props.items.filter(item => {
       let directorNameCity =
@@ -35,6 +41,7 @@ class SearchPlugin extends React.Component {
         <Form.Control
           placeholder="Search"
           onChange={this.onTextChanged}
+          onKeyDown={this.onEnter}
         />
       </Form>
 
