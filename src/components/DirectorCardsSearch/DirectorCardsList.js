@@ -9,24 +9,23 @@ class DirectorCardsList extends React.Component {
   constructor(props) {
     super(props)
     const { data } = this.props
-    this.state = { items: data.allContentfulPerson.edges.sort((a, b) => {
+    this.state = { items: data.allContentfulPerson.edges
+      .filter((item) => {
+        if(item.node.node_locale==='ru' && props.language==='by') return true
+        if(item.node.node_locale!== props.language) return false
+        return true
+      })
+      .sort((a, b) => {
         const nameA = a.node.name
         const nameB = b.node.name
         return (nameA < nameB) ? -1: 1;
       }) }
-
-    this.state = { items: data.allContentfulPerson.edges.filter((item) => {
-      if(item.node.node_locale!== props.language) return false
-      return true
-    }) }
-
     this.updateFilterList = this.updateFilterListHandler.bind(this)
   }
-
+ 
   updateFilterListHandler(filteredList) {
     this.setState({ items: filteredList })
   }
-
   render() {
     const { data, language } = this.props
     let state = this.state
@@ -34,8 +33,7 @@ class DirectorCardsList extends React.Component {
       <>
         <h1 className="mt-5 text-center">{localization[language].theatreDirectors}</h1>
         <h2>{data.title}</h2>
-        <SearchPlugin items={data.allContentfulPerson.edges} updateList={this.updateFilterList} language={language} />
-
+        <SearchPlugin items={data.allContentfulPerson.edges} updateList={this.updateFilterList} language={language}/>
         <ol className={directorsStyles.posts}>
           {state.items.map(item => {
             return (

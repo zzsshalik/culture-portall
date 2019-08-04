@@ -7,6 +7,13 @@ class SearchPlugin extends React.Component {
     this.onTextChanged = this.onTextChangedHandler.bind(this)
     this.search = this.searchHandler.bind(this)
   }
+  componentDidUpdate(prevProps, prevState, prevContext){
+    if(this.props.language!==prevProps.language) 
+    { 
+      this.searchHandler('')
+    }
+    return true
+  }
 
   onTextChangedHandler(e) {
     let searchString = e.target.value.trim()
@@ -15,7 +22,7 @@ class SearchPlugin extends React.Component {
 
   searchHandler(searchString) {
     const { items, updateList } = this.props
-    let filteredList = items.filter(item => {
+    const filteredList = items.filter(item => {
       const { language } = this.props
       let directorNameCity =
         item.node.name.toLowerCase() +
@@ -29,6 +36,8 @@ class SearchPlugin extends React.Component {
     updateList(filteredList)
   }
 
+
+ 
   render() {
     return (
       <Form className="mx-5 my-5">
