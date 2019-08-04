@@ -25,9 +25,9 @@ const AuthorOfDay  = ({ data, language }) => {
         const nameB = b.node.name
         return (nameA < nameB) ? -1: 1;
       }).map((edge, i) => {
-        const now = new Date();
-        const date = now.getDate();
-        if ((date - 1 - i) % data.allContentfulPerson.edges.length  === 0) {
+        const now = new Date()
+        const date = now.getDate()
+        if ((date - 1 - i) % (data.allContentfulPerson.edges.length/2)  === 0) {
           return (
             <Card
               bg="light"

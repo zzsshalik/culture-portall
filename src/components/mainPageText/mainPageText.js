@@ -30,7 +30,7 @@ const IndexPage = ({ language }) => {
             {localization[language].mainText.p3}
           </p>
           <p className="text-justify">
-            {localization[language].mainText.p3}
+            {localization[language].mainText.p4}
           </p>
         </div>
       </>
