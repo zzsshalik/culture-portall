@@ -16,6 +16,10 @@ const mapStateToProps = ({ language }) => {
     mapStateToProps
   )(MainPageText)
 
+  const  ConnectedAuthorOfDay = connect(
+    mapStateToProps
+  )(AuthorOfDay)
+
 
 const IndexPage = () => {
     const data = useStaticQuery(graphql`
@@ -34,9 +38,10 @@ const IndexPage = () => {
                 }
             }
         }
-        allContentfulPerson(filter:{node_locale: { eq: "en-US"}}) {
+        allContentfulPerson {
             edges{
                 node{
+                    node_locale
                     slug
                     name
                     photo{
@@ -58,11 +63,12 @@ const IndexPage = () => {
         <Head title="Home" />
         <Container>
           <ConnectedMainPageText />
-          <AuthorOfDay data={data} />
+          <ConnectedAuthorOfDay data={data} />
           <DevCards data={data} />
         </Container>
       </Layout>
     )
+
 }
 
 export default IndexPage

@@ -5,6 +5,8 @@ export default {
      'theatreDirectors':'Theatre directors',
      'developers':'Developers',
      'footerLable':'Powered by React+Gatsby+Contentful TEAM12 for RS School',
+     'read':'Read',
+     'authorOfDay':'Person of the day',
      mainText:{
         'p1':'Belarusian theatre history extends back over many centuries. Belarusian professional theatre evolved from ancient folk rituals, performances of wandering musicians, court troupes of the Belarusian magnates and activities of amateur groups abroad in the 19–20th centuries.',
         'p2':'Today the country boasts a diverse range of theatre and drama:',
@@ -22,6 +24,8 @@ export default {
         'theatreDirectors':'Тэатральныя рэжысёры',
         'developers':'Распрацоўшчыкі',
         'footerLable':'Працуе на React + Gatsby + Contentful TEAM12 для школы RS',
+        'read':'Чытаць',
+        'authorOfDay':'Аўтар дня',
         mainText:{
             'p1':'Гісторыя беларускага тэатра налічвае не адно стагоддзе. Беларускі прафесійны тэатр развіўся са старажытных народных абрадаў, выступленні вандроўных музыкантаў, прыдворных труп беларускіх магнатаў, дзейнасці аматарскіх калектываў за мяжой у 19-20 стст.',
             'p2':'Сёння краіна можа пахваліцца разнастайным спектрам тэатра і драмы:',
@@ -37,8 +41,10 @@ export default {
         'brand':'Культурный портал',
         'home':'Домой',
         'theatreDirectors':'Театральные режиссёры',
-        'developers':'Команда разработчиков',
+        'developers':'Разработчики',
         'footerLable':'Работает на React+Gatsby + Contentful TEAM12 для школы RS',
+        'read':'Читать',
+        'authorOfDay':'Автор дня',
         mainText:{
             'p1':'История белорусского театра насчитывает не одно столетие. Белорусский профессиональный театр развился из древних народных обрядов, выступления бродячих музыкантов, придворных трупп белорусских магнатов, деятельности любительских коллективов за рубежом в 19–20 вв.',
             'p2':'Сегодня страна может похвастаться разнообразным спектром театра и драмы:',

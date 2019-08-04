@@ -17,7 +17,7 @@ const Header = ({ language, ru }) => (
         <Navbar.Brand as={Link} to='/' className={headerStyles.logo}>
           {localization[language].brand}
         </Navbar.Brand>
-        <Nav>
+        <Nav className={headerStyles.navTextWrap}>
           <Nav.Link activeStyle={{ color: "#ffffff" }} as={Link} to='/'>
             {localization[language].home}
           </Nav.Link>

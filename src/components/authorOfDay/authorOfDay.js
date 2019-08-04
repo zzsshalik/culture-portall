@@ -8,18 +8,25 @@ import {
 import PropTypes from 'prop-types'
 
 import authorOfDayStyles from './authorOfDay.module.scss'
+import localization from '../../localization/localization'
 
-const AuthorOfDay  = ({ data }) => {
+const AuthorOfDay  = ({ data, language }) => {
+  let newLanguage=language;
+  if(language==='by') newLanguage='ru';
   return(
     <>
-      {data.allContentfulPerson.edges.sort((a, b) => {
+      {data.allContentfulPerson.edges
+      .filter((item)=>{
+        if(item.node.node_locale!==newLanguage) return false;
+        return true;
+      })
+      .sort((a, b) => {
         const nameA = a.node.name
         const nameB = b.node.name
         return (nameA < nameB) ? -1: 1;
       }).map((edge, i) => {
         const now = new Date();
         const date = now.getDate();
-
         if ((date - 1 - i) % data.allContentfulPerson.edges.length  === 0) {
           return (
             <Card
@@ -30,7 +37,7 @@ const AuthorOfDay  = ({ data }) => {
             >
               <Card.Header>
                 <Card.Title>
-                  <h2 className="text-center mb-0">Person of the day</h2>
+                  <h2 className="text-center mb-0">{localization[language].authorOfDay}</h2>
                 </Card.Title>
               </Card.Header>
               <Card.Body>
@@ -48,11 +55,11 @@ const AuthorOfDay  = ({ data }) => {
                     <Button
                       variant="outline-dark"
                       as={Link}
-                      to={`/directors/en-US/${edge.node.slug}`}
+                      to={`/directors/${newLanguage}/${edge.node.slug}`}
                       className="mt-3"
                       block
                     >
-                  Read
+                      {localization[language].read}
                     </Button>
                   </Media.Body>
                 </Media>
@@ -67,6 +74,7 @@ const AuthorOfDay  = ({ data }) => {
 
 AuthorOfDay.propTypes = {
   data: PropTypes.objectOf(PropTypes.object).isRequired,
+  language: PropTypes.string.isRequired,
 }
 
 
