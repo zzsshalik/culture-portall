@@ -40,7 +40,7 @@ export default {
     "ru":{
         'brand':'Культурный портал',
         'home':'Домой',
-        'theatreDirectors':'Директора театров',
+        'theatreDirectors':'Театральные режиссёры',
         'developers':'Разработчики',
         'footerLable':'Работает на React+Gatsby + Contentful TEAM12 для школы RS',
         'read':'Читать',
